@@ -1,4 +1,4 @@
-export default interface Options {
+export interface Options {
 
   /**
    * @default 'un-'

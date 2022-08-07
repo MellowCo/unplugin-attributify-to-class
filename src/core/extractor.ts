@@ -1,4 +1,4 @@
-import type AttributifyOptions from '../types'
+import type { Options } from '../types'
 import { isValidSelector } from './utils'
 
 const strippedPrefixes = [
@@ -33,7 +33,7 @@ interface TransformOption {
   selectors: string[]
 }
 
-export const extractorAttributify = (options?: AttributifyOptions): any => {
+export const extractorAttributify = (options?: Options): any => {
   const attributes = options?.attributes ?? defaultAttributes
   const nonValuedAttribute = options?.nonValuedAttribute ?? true
   const prefix = options?.prefix ?? 'un-'
