@@ -2,33 +2,52 @@
 
 exports[`attributify > extract1 1`] = `
 "
+  <view class=\\"\\">
+    <button
+            
+      
+      class=\\"text-red font-bold h-80 text-center flex flex-col align-center select-none all:transition-400 bg-blue-400 bg-hover:blue-500 bg-dark:!blue-500 bg-dark:hover:blue-600\\"
+      :class=\\"{ 'text-blue': true, 'text-green': false }\\"
+      :class=\\"[ 'text-blue', 'text-green' ]\\"
+      :class=\\"[ str === 'blue' ? 'text-blue' : 'text-red' ]\\"
+    >
+      Button
+    </button>
+
+    <image class=\\"mode-widthFix\\"></image> 
+  </view>
+"
+`;
+
+exports[`attributify > extract1 2`] = `
+"
 <template>
-  <div class=\\"h-80\\" class=\\"text-center\\" class=\\"class=\\"flex\\"\\" class=\\"flex-col\\" class=\\"align-center\\" class=\\"select-none\\" class=\\"all:transition-400\\">
-    <input class=\\"type-checkbox\\" class=\\"class=\\"peer\\"\\" class=\\"mt-a\\">
-    <div class=\\"mb-a\\" class=\\"group\\" class=\\"peer-checked-class=\\"text-4xl\\"\\">
+  <div       class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400\\">
+    <input type=\\"checkbox\\"  class=\\"peer mt-a\\">
+    <div   class=\\"mb-a group peer-checked-text-4xl\\">
       <div
-        class=\\"class=\\"font-100\\"\\" text-4xl class=\\"mb--3\\" class=\\"p-10\\"
-        class=\\"bg-gradient-to-r bg-gradient-from-yellow-400 bg-gradient-via-red-500 bg-gradient-to-pink-500\\"
-      >
+           
+        
+      class=\\"font-100 text-4xl mb--3 p-10 bg-gradient-to-r bg-gradient-from-yellow-400 bg-gradient-via-red-500 bg-gradient-to-pink-500\\">
         ~
       </div>
-      <div class=\\"text-5xl\\" font-100 class=\\"sm-bg-blue-600\\">
+      <div   class=\\"text-5xl font-100 sm-bg-blue-600\\">
         unocss
       </div>
-      <div class=\\"op-20\\" class=\\"font-200\\" class=\\"mt-1\\" class=\\"tracking-wider\\" class=\\"group-hover-text-teal-400 group-hover-op-50\\">
-        Re-iclass=\\"ma\\"ging Atomic CSS
+      <div     class=\\"op-20 font-200 mt-1 tracking-wider group-hover-text-teal-400 group-hover-op-50\\">
+        Re-imaging Atomic CSS
       </div>
     </div>
   </div>
-  <div flex>
-    <div ma class=\\"inline-flex\\" class=\\"relative\\" class=\\"h-14\\">
-      <input class=\\"type-text\\" class=\\"m-0\\" class=\\"pt-4\\" class=\\"px-4\\" class=\\"text-true-gray-800\\" peer placeholder=\\"unocss\\" class=\\"un-placeholder-text-red\\">
-      <label class=\\"absolute\\" class=\\"leading-1rem\\" class=\\"left-4\\" class=\\"pointer-events-none\\" class=\\"text-gray-7\\" class=\\"top-1/3\\" class=\\"transition-200 transition-linear\\"
-        class=\\"peer-not-placeholder-shown--translate-y-4 peer-not-placeholder-shown-scale-75 peer-not-placeholder-shown-origin-top-left peer-not-placeholder-shown-text-green-500\\"
-        class=\\"peer-focus--translate-y-4 peer-focus-scale-75 peer-focus-origin-top-left peer-focus-text-green-500\\"
-        class=\\"before-content-!\\"
-        class=\\"after-content-[!]\\"
-      >Experience now</label>
+  <div class=\\"flex\\">
+    <div    class=\\"ma inline-flex relative h-14\\">
+      <input type=\\"text\\"      placeholder=\\"unocss\\" class=\\"m-0 pt-4 px-4 text-true-gray-800 peer un-placeholder-text-red\\">
+      <label       
+        
+        
+        
+        
+      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7 top-1/3 transition-200 transition-linear peer-not-placeholder-shown--translate-y-4 peer-not-placeholder-shown-scale-75 peer-not-placeholder-shown-origin-top-left peer-not-placeholder-shown-text-green-500 peer-focus--translate-y-4 peer-focus-scale-75 peer-focus-origin-top-left peer-focus-text-green-500 before-content-! after-content-[!]\\">Experience now</label>
     </div>
   </div>
 </template>
