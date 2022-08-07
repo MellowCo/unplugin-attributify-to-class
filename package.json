@@ -1,0 +1,93 @@
+{
+  "name": "unplugin-unocss-attributify-wechat",
+  "version": "0.1.0",
+  "packageManager": "pnpm@7.1.1",
+  "description": "Register global imports on demand for Vite and Webpack",
+  "license": "MIT",
+  "homepage": "https://github.com/MellowCo/unplugin-unocss-attributify-wechat#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MellowCo/unplugin-unocss-attributify-wechat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MellowCo/unplugin-unocss-attributify-wechat/issues"
+  },
+  "keywords": [
+    "unplugin",
+    "vite",
+    "webpack",
+    "rollup",
+    "transform"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./vite": {
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    },
+    "./webpack": {
+      "require": "./dist/webpack.js",
+      "import": "./dist/webpack.mjs"
+    },
+    "./rollup": {
+      "require": "./dist/rollup.js",
+      "import": "./dist/rollup.mjs"
+    },
+    "./esbuild": {
+      "require": "./dist/esbuild.js",
+      "import": "./dist/esbuild.mjs"
+    },
+    "./nuxt": {
+      "require": "./dist/nuxt.js",
+      "import": "./dist/nuxt.mjs"
+    },
+    "./types": {
+      "require": "./dist/types.js",
+      "import": "./dist/types.mjs"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch src",
+    "build:fix": "esno scripts/postbuild.ts",
+    "lint": "eslint .",
+    "play": "npm -C playground run dev",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "unplugin": "^0.9.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@types/node": "^18.6.4",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.21.0",
+    "rollup": "^2.77.2",
+    "tsup": "^6.2.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.4",
+    "vitest": "^0.21.0",
+    "webpack": "^5.74.0"
+  }
+}
