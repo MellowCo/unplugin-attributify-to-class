@@ -9,7 +9,7 @@ const strippedPrefixes = [
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
-export const defaultIgnoreAttributes = ['placeholder', 'type']
+export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font']
 
 interface TransformOption {
   /**
@@ -34,15 +34,22 @@ interface TransformOption {
 }
 
 export const extractorAttributify = (options?: AttributifyOptions): any => {
-  const ignoreAttributes = options?.ignoreAttributes ?? defaultIgnoreAttributes
+  const attributes = options?.attributes ?? defaultAttributes
   const nonValuedAttribute = options?.nonValuedAttribute ?? true
+  const prefix = options?.prefix ?? 'un-'
+  const prefixedOnly = options?.prefixedOnly ?? false
 
   return function extract(code: string) {
     const result: TransformOption[] = []
 
     Array.from(code.matchAll(elementRE))
       .forEach(([elementStr, valuedAttributeStr]) => {
+        // console.log('valuedAttributeStr', valuedAttributeStr)
+
         const valuedAttributes = Array.from((valuedAttributeStr || '').matchAll(valuedAttributeRE))
+
+        // console.log('valuedAttributes', valuedAttributes)
+
         const option: TransformOption = {
           elementStr,
           tempStr: elementStr,
@@ -50,25 +57,6 @@ export const extractorAttributify = (options?: AttributifyOptions): any => {
           selectors: [],
         }
         valuedAttributes.forEach(([sourceStr, name, _, content]) => {
-          // console.log('elementStr', elementStr)
-          // console.log('sourceStr', sourceStr)
-          // console.log('name', sourceStr)
-          // console.log('_', _)
-          // console.log('content', sourceStr)
-          // console.log('===================')
-
-          // 是否忽略该属性
-          if (ignoreAttributes.includes(name))
-            return
-
-          for (const prefix of strippedPrefixes) {
-            // 如果是 : v-bind: 开头的属性，则不处理
-            if (name.startsWith(prefix)) {
-              name = name.slice(prefix.length)
-              return
-            }
-          }
-
           if (!content) {
             // 处理 transform pt2 rounded-sm 单值属性
             if (isValidSelector(name) && nonValuedAttribute !== false) {
@@ -79,15 +67,31 @@ export const extractorAttributify = (options?: AttributifyOptions): any => {
             return
           }
 
+          for (const prefix of strippedPrefixes) {
+            // 如果是 : v-bind: 开头的属性，则不处理
+            if (name.startsWith(prefix)) {
+              name = name.slice(prefix.length)
+              return
+            }
+          }
+
+          // 是否生成该属性
+          if (!attributes.includes(prefixedOnly ? name.replace(prefix, '') : name))
+            return
+
           if (['class', 'className'].includes(name)) {
             option.staticClass = sourceStr
           }
           else {
+            if (prefixedOnly && !name.startsWith(prefix))
+              return
+
             // 处理 bg="blue-400 hover:blue-500 dark:!blue-500 dark:hover:blue-600"
+            const _name = prefixedOnly ? name.replace(prefix, '') : name
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
-              .map(v => `${name}-${v}`).join(' ')
+              .map(v => `${_name}-${v}`).join(' ')
 
             option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)
@@ -112,6 +116,6 @@ export const extractorAttributify = (options?: AttributifyOptions): any => {
   }
 }
 
-export function spliceStr(str: string, start: number, newStr: string) {
+function spliceStr(str: string, start: number, newStr: string) {
   return str.slice(0, start) + newStr + str.slice(start)
 }

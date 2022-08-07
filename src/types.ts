@@ -6,14 +6,13 @@ export default interface Options {
   prefix?: string
 
   /**
-   * Only match for prefixed attributes
-   *
+   * 仅匹配前缀属性
    * @default false
    */
   prefixedOnly?: boolean
 
   /**
-   * Support matching non-valued attributes
+   * 支持匹配非值属性
    *
    * For example
    * ```html
@@ -25,16 +24,8 @@ export default interface Options {
   nonValuedAttribute?: boolean
 
   /**
-   * A list of attributes to be ignored from extracting.
+   * 需要转换的属性列表
+   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font']
    */
-  ignoreAttributes?: string[]
-
-  /**
-   * Non-valued attributes will also match if the actual value represented in DOM is `true`.
-   * This option exists for supporting frameworks that encodes non-valued attributes as `true`.
-   * Enabling this option will break rules that ends with `true`.
-   *
-   * @default false
-   */
-  trueToNonValued?: boolean
+  attributes?: string[]
 }

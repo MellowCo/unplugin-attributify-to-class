@@ -6,15 +6,19 @@ exports[`attributify > extract1 1`] = `
     <button
             
       
-      class=\\"text-red font-bold h-80 text-center flex flex-col align-center select-none all:transition-400 bg-blue-400 bg-hover:blue-500 bg-dark:!blue-500 bg-dark:hover:blue-600\\"
+      li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
+      class=\\"text-red font-bold\\"
+      :loading=\\"loading\\"
+      my-class=\\"text-red font-bold\\"
+      title=\\"this is title\\"
       :class=\\"{ 'text-blue': true, 'text-green': false }\\"
       :class=\\"[ 'text-blue', 'text-green' ]\\"
       :class=\\"[ str === 'blue' ? 'text-blue' : 'text-red' ]\\"
-    >
+    class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400 bg-blue-400 bg-hover:blue-400 bg-dark:!blue-400 bg-dark:hover:blue-400\\">
       Button
     </button>
 
-    <image class=\\"mode-widthFix\\"></image> 
+    <image mode=\\"widthFix\\"class=\\"\\"></image> 
   </view>
 "
 `;
@@ -24,30 +28,92 @@ exports[`attributify > extract1 2`] = `
 <template>
   <div       class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400\\">
     <input type=\\"checkbox\\"  class=\\"peer mt-a\\">
-    <div   class=\\"mb-a group peer-checked-text-4xl\\">
+    <div   peer-checked=\\"text-4xl\\"class=\\"mb-a group\\">
       <div
            
-        
-      class=\\"font-100 text-4xl mb--3 p-10 bg-gradient-to-r bg-gradient-from-yellow-400 bg-gradient-via-red-500 bg-gradient-to-pink-500\\">
+        bg-gradient=\\"to-r from-yellow-400 via-red-500 to-pink-500\\"
+      class=\\"font-100 text-4xl mb--3 p-10\\">
         ~
       </div>
-      <div   class=\\"text-5xl font-100 sm-bg-blue-600\\">
+      <div   sm=\\"bg-blue-600\\"class=\\"text-5xl font-100\\">
         unocss
       </div>
-      <div     class=\\"op-20 font-200 mt-1 tracking-wider group-hover-text-teal-400 group-hover-op-50\\">
+      <div     group-hover=\\"text-teal-400 op-50\\"class=\\"op-20 font-200 mt-1 tracking-wider\\">
         Re-imaging Atomic CSS
       </div>
     </div>
   </div>
   <div class=\\"flex\\">
     <div    class=\\"ma inline-flex relative h-14\\">
-      <input type=\\"text\\"      placeholder=\\"unocss\\" class=\\"m-0 pt-4 px-4 text-true-gray-800 peer un-placeholder-text-red\\">
-      <label       
-        
-        
-        
-        
-      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7 top-1/3 transition-200 transition-linear peer-not-placeholder-shown--translate-y-4 peer-not-placeholder-shown-scale-75 peer-not-placeholder-shown-origin-top-left peer-not-placeholder-shown-text-green-500 peer-focus--translate-y-4 peer-focus-scale-75 peer-focus-origin-top-left peer-focus-text-green-500 before-content-! after-content-[!]\\">Experience now</label>
+      <input type=\\"text\\"      
+      placeholder=\\"unocss\\" 
+      un-placeholder=\\"text-red\\"class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
+      <label      top=\\"1/3\\" transition=\\"200 linear\\"
+        peer-not-placeholder-shown=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
+        peer-focus=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
+        before=\\"content-!\\"
+        after=\\"content-[!]\\"
+      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
+    </div>
+  </div>
+</template>
+"
+`;
+
+exports[`attributify > extract2 1`] = `
+"
+  <view class=\\"\\">
+    <button
+            
+      bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
+      
+      class=\\"text-red font-bold\\"
+      :loading=\\"loading\\"
+      my-class=\\"text-red font-bold\\"
+      title=\\"this is title\\"
+      :class=\\"{ 'text-blue': true, 'text-green': false }\\"
+      :class=\\"[ 'text-blue', 'text-green' ]\\"
+      :class=\\"[ str === 'blue' ? 'text-blue' : 'text-red' ]\\"
+    class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400 bg-blue-500 bg-hover:blue-500 bg-dark:!blue-500 bg-dark:hover:blue-500\\">
+      Button
+    </button>
+
+    <image mode=\\"widthFix\\"class=\\"\\"></image> 
+  </view>
+"
+`;
+
+exports[`attributify > extract2 2`] = `
+"
+<template>
+  <div       class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400\\">
+    <input type=\\"checkbox\\"  class=\\"peer mt-a\\">
+    <div   peer-checked=\\"text-4xl\\"class=\\"mb-a group\\">
+      <div
+           
+        bg-gradient=\\"to-r from-yellow-400 via-red-500 to-pink-500\\"
+      class=\\"font-100 text-4xl mb--3 p-10\\">
+        ~
+      </div>
+      <div   sm=\\"bg-blue-600\\"class=\\"text-5xl font-100\\">
+        unocss
+      </div>
+      <div     group-hover=\\"text-teal-400 op-50\\"class=\\"op-20 font-200 mt-1 tracking-wider\\">
+        Re-imaging Atomic CSS
+      </div>
+    </div>
+  </div>
+  <div class=\\"flex\\">
+    <div    class=\\"ma inline-flex relative h-14\\">
+      <input type=\\"text\\"      
+      placeholder=\\"unocss\\" 
+      un-placeholder=\\"text-red\\"class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
+      <label      top=\\"1/3\\" transition=\\"200 linear\\"
+        peer-not-placeholder-shown=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
+        peer-focus=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
+        before=\\"content-!\\"
+        after=\\"content-[!]\\"
+      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
     </div>
   </div>
 </template>

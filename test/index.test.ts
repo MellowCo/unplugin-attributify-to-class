@@ -6,8 +6,12 @@ describe('attributify', () => {
   <view >
     <button
       h-80 text-center flex flex-col align-center select-none all:transition-400
-      bg="blue-400 hover:blue-500 dark:!blue-500 dark:hover:blue-600"
+      bg="blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400"
+      li-bg="blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500"
       class="text-red font-bold"
+      :loading="loading"
+      my-class="text-red font-bold"
+      title="this is title"
       :class="{ 'text-blue': true, 'text-green': false }"
       :class="[ 'text-blue', 'text-green' ]"
       :class="[ str === 'blue' ? 'text-blue' : 'text-red' ]"
@@ -40,7 +44,9 @@ describe('attributify', () => {
   </div>
   <div flex>
     <div ma inline-flex relative h-14>
-      <input type="text" m-0 pt-4 px-4 text-true-gray-800 peer placeholder="unocss" un-placeholder="text-red">
+      <input type="text" m-0 pt-4 px-4 text-true-gray-800 peer 
+      placeholder="unocss" 
+      un-placeholder="text-red">
       <label absolute leading-1rem left-4 pointer-events-none text-gray-7 top="1/3" transition="200 linear"
         peer-not-placeholder-shown="-translate-y-4 scale-75 origin-top-left text-green-500"
         peer-focus="-translate-y-4 scale-75 origin-top-left text-green-500"
@@ -55,7 +61,7 @@ describe('attributify', () => {
   const extract1 = extractorAttributify()
   const extract2 = extractorAttributify({
     prefixedOnly: true,
-    prefix: 'un-',
+    prefix: 'li-',
   })
 
   test('spliceStr', () => {
@@ -68,9 +74,8 @@ describe('attributify', () => {
     expect(extract1(fixture2)).toMatchSnapshot()
   })
 
-  // test('extract2', async () => {
-  //   expect(extract2(fixture1)).toMatchSnapshot()
-  //   expect(extract2(fixture2)).toMatchSnapshot()
-  //   expect(extract2(fixture3)).toMatchSnapshot()
-  // })
+  test('extract2', async () => {
+    expect(extract2(fixture1)).toMatchSnapshot()
+    expect(extract2(fixture2)).toMatchSnapshot()
+  })
 })
