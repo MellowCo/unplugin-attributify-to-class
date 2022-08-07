@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { extractorAttributify, spliceStr } from '../src/core/extractor'
+import { extractorAttributify } from '../src/core/extractor'
 
 describe('attributify', () => {
   const fixture1 = `
@@ -62,11 +62,6 @@ describe('attributify', () => {
   const extract2 = extractorAttributify({
     prefixedOnly: true,
     prefix: 'li-',
-  })
-
-  test('spliceStr', () => {
-    const str = 'class="text-red font-bold"'
-    expect(spliceStr(str, -1, ' flex')).toMatchInlineSnapshot('"class=\\"text-red font-bold flex\\""')
   })
 
   test('extract1', async () => {
