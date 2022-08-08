@@ -2,9 +2,23 @@
 
 [![NPM version](https://img.shields.io/npm/v/unplugin-unocss-attributify-wechat?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-unocss-attributify-wechat)
 
-> Starter template for [unplugin](https://github.com/unjs/unplugin).   
-> [UnoCSS](https://github.com/unocss/unocss) 小程序 Attributify Mode 插件, fork from [@unocss/preset-attributify](https://github.com/unocss/unocss/tree/main/packages/preset-attributify)
+Starter template for [unplugin](https://github.com/unjs/unplugin)
 
+
+[UnoCSS](https://github.com/unocss/unocss) 小程序 Attributify Mode 插件, fork from [@unocss/preset-attributify](https://github.com/unocss/unocss/tree/main/packages/preset-attributify)
+
+相关链接
+* [UnoCSS](https://github.com/unocss/unocss) - 即时按需原子CSS引擎
+* [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - UnoCSS 微信小程序预设
+* [unplugin-transform-we-class](https://github.com/MellowCo/unplugin-transform-we-class) - 小程序原子化 CSS 转换转义类名插件
+* [unplugin-unocss-attributify-wechat](https://github.com/MellowCo/unplugin-unocss-attributify-wechat) - 小程序 Attributify Mode 插件
+* [unocss-webpack-uniapp2](https://github.com/MellowCo/unocss-webpack-uniapp2#unocss-webpack-uniapp2) - 兼容 UniApp Vue2 App开发插件
+* [uni-vue3-starter](https://github.com/MellowCo/uni-vue3-starter) - Uniapp-Vite 模版
+
+`uniapp` ,`taro` 使用文档，见 [github](https://github.com/MellowCo/unocss-preset-weapp) [掘金](https://juejin.cn/post/7116730180252467236/)
+
+
+## 原因
 使用 `@unocss/preset-attributify` 
 ```html
 <button
