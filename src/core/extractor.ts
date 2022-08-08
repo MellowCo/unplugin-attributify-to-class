@@ -9,7 +9,7 @@ const strippedPrefixes = [
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
-export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className']
+export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
 
 interface TransformOption {
   /**
@@ -91,7 +91,7 @@ export const extractorAttributify = (options?: Options): any => {
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
-              .map(v => `${_name}-${v}`).join(' ')
+              .map(v => v === '~' ? _name : `${_name}-${v}`).join(' ')
 
             option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)

@@ -25,7 +25,7 @@ export interface Options {
 
   /**
    * 需要转换的属性列表
-   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font']
+   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
    */
   attributes?: string[]
 
