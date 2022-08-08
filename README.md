@@ -102,7 +102,7 @@ export interface Options {
 
   /**
    * 忽略的非值属性列表
-   * @default []
+   * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
 }
@@ -182,6 +182,7 @@ presetAttributifyWechat({
 ### 注意事项
 * Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
 * **默认提取所有 valueless 属性，需要设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免被转换成 `class`，所以谨慎使用，谨慎使用，谨慎使用**
+* `ignoreNonValuedAttributes` 默认值 `['setup', 'scoped']`
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
@@ -196,13 +197,13 @@ presetAttributifyWechat({
 ```
 
 ```ts
-import presetAttributifyWechat, { defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
+import presetAttributifyWechat, { defaultIgnoreNonValuedAttributes } from 'unplugin-unocss-attributify-wechat/vite'
 
 presetAttributifyWechat({
   // 开启 valueless attributify
   nonValuedAttribute: true,
   // 忽略的非值属性列表
-  ignoreNonValuedAttributes: ['my-prop', 'is-top']
+  ignoreNonValuedAttributes: [...defaultIgnoreNonValuedAttributes, 'my-prop', 'is-top']
 })
 ```
 

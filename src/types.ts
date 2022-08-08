@@ -31,7 +31,7 @@ export interface Options {
 
   /**
    * 忽略的非值属性列表
-   * @default ['setup']
+   * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
 }
