@@ -12,6 +12,8 @@ describe('attributify', () => {
       :loading="loading"
       my-class="text-red font-bold"
       title="this is title"
+      my-prop
+      non-value
       :class="{ 'text-blue': true, 'text-green': false }"
       :class="[ 'text-blue', 'text-green' ]"
       :class="[ str === 'blue' ? 'text-blue' : 'text-red' ]"
@@ -64,6 +66,15 @@ describe('attributify', () => {
     prefix: 'li-',
   })
 
+  const extract3 = extractorAttributify({
+    nonValuedAttribute: true,
+    ignoreNonValuedAttributes: ['h-80', 'flex', 'my-prop'],
+  })
+
+  const extract4 = extractorAttributify({
+    nonValuedAttribute: true,
+  })
+
   test('extract1', async () => {
     expect(extract1(fixture1)).toMatchSnapshot()
     expect(extract1(fixture2)).toMatchSnapshot()
@@ -72,5 +83,15 @@ describe('attributify', () => {
   test('extract2', async () => {
     expect(extract2(fixture1)).toMatchSnapshot()
     expect(extract2(fixture2)).toMatchSnapshot()
+  })
+
+  test('extract3', async () => {
+    expect(extract3(fixture1)).toMatchSnapshot()
+    expect(extract3(fixture2)).toMatchSnapshot()
+  })
+
+  test('extract4', async () => {
+    expect(extract4(fixture1)).toMatchSnapshot()
+    expect(extract4(fixture2)).toMatchSnapshot()
   })
 })

@@ -9,7 +9,7 @@ const strippedPrefixes = [
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
-export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font']
+export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className']
 
 interface TransformOption {
   /**
@@ -35,7 +35,8 @@ interface TransformOption {
 
 export const extractorAttributify = (options?: Options): any => {
   const attributes = options?.attributes ?? defaultAttributes
-  const nonValuedAttribute = options?.nonValuedAttribute ?? true
+  const nonValuedAttribute = options?.nonValuedAttribute ?? false
+  const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? []
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false
 
@@ -44,11 +45,7 @@ export const extractorAttributify = (options?: Options): any => {
 
     Array.from(code.matchAll(elementRE))
       .forEach(([elementStr, valuedAttributeStr]) => {
-        // console.log('valuedAttributeStr', valuedAttributeStr)
-
         const valuedAttributes = Array.from((valuedAttributeStr || '').matchAll(valuedAttributeRE))
-
-        // console.log('valuedAttributes', valuedAttributes)
 
         const option: TransformOption = {
           elementStr,
@@ -57,12 +54,16 @@ export const extractorAttributify = (options?: Options): any => {
           selectors: [],
         }
         valuedAttributes.forEach(([sourceStr, name, _, content]) => {
+          const _name = prefixedOnly ? name.replace(prefix, '') : name
+
           if (!content) {
             // 处理 transform pt2 rounded-sm 单值属性
             if (isValidSelector(name) && nonValuedAttribute !== false) {
-              // 删除属性
-              option.tempStr = option.tempStr.replace(name, '')
-              option.selectors.push(name)
+              // 不是忽略的非值属性
+              if (!ignoreNonValuedAttributes.includes(name)) {
+                option.tempStr = option.tempStr.replace(name, '')
+                option.selectors.push(name)
+              }
             }
             return
           }
@@ -76,7 +77,7 @@ export const extractorAttributify = (options?: Options): any => {
           }
 
           // 是否生成该属性
-          if (!attributes.includes(prefixedOnly ? name.replace(prefix, '') : name))
+          if (!attributes.includes(_name))
             return
 
           if (['class', 'className'].includes(name)) {
@@ -87,7 +88,6 @@ export const extractorAttributify = (options?: Options): any => {
               return
 
             // 处理 bg="blue-400 hover:blue-500 dark:!blue-500 dark:hover:blue-600"
-            const _name = prefixedOnly ? name.replace(prefix, '') : name
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
@@ -102,6 +102,9 @@ export const extractorAttributify = (options?: Options): any => {
       })
 
     result.forEach(({ elementStr, tempStr, staticClass, selectors }) => {
+      if (selectors.length === 0)
+        return
+
       if (staticClass) {
         tempStr = tempStr.replace(staticClass, spliceStr(staticClass, -1, ` ${selectors.join(' ')}`))
         code = code.replace(elementStr, tempStr)

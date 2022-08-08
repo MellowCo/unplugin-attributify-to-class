@@ -1,6 +1,6 @@
 import { createUnplugin } from 'unplugin'
 import type { Options } from './types'
-import { defaultAttributes, extractorAttributify } from './core/extractor'
+import { extractorAttributify } from './core/extractor'
 
 export default createUnplugin<Options>((options) => {
   const extractor = extractorAttributify(options)

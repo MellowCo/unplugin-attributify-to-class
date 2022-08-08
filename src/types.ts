@@ -19,7 +19,7 @@ export interface Options {
    * <div mt-2 />
    * ```
    *
-   * @default true
+   * @default false
    */
   nonValuedAttribute?: boolean
 
@@ -28,4 +28,10 @@ export interface Options {
    * @default ['bg', 'flex', 'grid', 'border', 'text', 'font']
    */
   attributes?: string[]
+
+  /**
+   * 忽略的非值属性列表
+   * @default []
+   */
+  ignoreNonValuedAttributes?: string[]
 }
