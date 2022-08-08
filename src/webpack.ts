@@ -1,5 +1,5 @@
 import type { Options } from './types'
-import { defaultAttributes } from './core/extractor'
+import { defaultAttributes, defaultIgnoreNonValuedAttributes } from './core/extractor'
 import unplugin from '.'
 
 const presetAttributifyWechat = unplugin.webpack as (options?: Options) => any
@@ -8,4 +8,5 @@ const presetAttributifyWechat = unplugin.webpack as (options?: Options) => any
 export {
   presetAttributifyWechat,
   defaultAttributes,
+  defaultIgnoreNonValuedAttributes,
 }

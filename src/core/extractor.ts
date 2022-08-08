@@ -11,7 +11,7 @@ const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
 
 export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
-export const defaultIgnoreNonValuedAttributes = ['setup']
+export const defaultIgnoreNonValuedAttributes = ['setup', 'scoped']
 
 interface TransformOption {
   /**
@@ -112,7 +112,7 @@ export const extractorAttributify = (options?: Options): any => {
         code = code.replace(elementStr, tempStr)
       }
       else {
-        const className = `class="${selectors.join(' ')}"`
+        const className = ` class="${selectors.join(' ')}"`
         code = code.replace(elementStr, spliceStr(tempStr, -1, className))
       }
     })
