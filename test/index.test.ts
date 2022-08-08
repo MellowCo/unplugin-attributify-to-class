@@ -95,6 +95,21 @@ describe('attributify', () => {
     </div>
   </div>
 </template>
+
+<script  lang="ts" setup>
+import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
+onLaunch(() => {
+  console.log('App Launch')
+})
+onShow(() => {
+  console.log('App Show')
+})
+onHide(() => {
+  console.log('App Hide')
+})
+</script>
+
+<style></style>
 `
 
   const extract1 = extractorAttributify({
@@ -124,16 +139,16 @@ describe('attributify', () => {
 
   test('extract2', async () => {
     expect(extract2(fixture1)).toMatchSnapshot()
-    // expect(extract2(fixture2)).toMatchSnapshot()
+    expect(extract2(fixture2)).toMatchSnapshot()
   })
 
   test('extract3', async () => {
     expect(extract3(fixture1)).toMatchSnapshot()
-    // expect(extract3(fixture2)).toMatchSnapshot()
+    expect(extract3(fixture2)).toMatchSnapshot()
   })
 
   test('extract4', async () => {
     expect(extract4(fixture1)).toMatchSnapshot()
-    // expect(extract4(fixture2)).toMatchSnapshot()
+    expect(extract4(fixture2)).toMatchSnapshot()
   })
 })

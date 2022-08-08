@@ -9,7 +9,9 @@ const strippedPrefixes = [
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
+
 export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
+export const defaultIgnoreNonValuedAttributes = ['setup']
 
 interface TransformOption {
   /**
@@ -36,7 +38,7 @@ interface TransformOption {
 export const extractorAttributify = (options?: Options): any => {
   const attributes = options?.attributes ?? defaultAttributes
   const nonValuedAttribute = options?.nonValuedAttribute ?? false
-  const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? []
+  const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? defaultIgnoreNonValuedAttributes
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false
 
