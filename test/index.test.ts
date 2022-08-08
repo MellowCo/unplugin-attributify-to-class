@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { extractorAttributify } from '../src/core/extractor'
+import { defaultAttributes, extractorAttributify } from '../src/core/extractor'
 
 describe('attributify', () => {
   const fixture1 = `
@@ -21,6 +21,23 @@ describe('attributify', () => {
       Button
     </button>
 
+    <button 
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+      my-attr="y-1 x-2 sm"
+    >
+      Button
+    </button>
+
+    <button 
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+    >
+      Button
+    </button>
+
     <button border="~ red">
       Button
     </button>
@@ -28,6 +45,8 @@ describe('attributify', () => {
     <button flex="~ col wrap">
       Button
     </button>
+
+    <a text="red" un-text="blue">This conflicts with links' text prop</a>
 
     <button 
       bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
@@ -78,10 +97,15 @@ describe('attributify', () => {
 </template>
 `
 
-  const extract1 = extractorAttributify()
+  const extract1 = extractorAttributify({
+    attributes: [
+      ...defaultAttributes,
+      'my-attr',
+    ],
+  })
   const extract2 = extractorAttributify({
     prefixedOnly: true,
-    prefix: 'li-',
+    prefix: 'un-',
   })
 
   const extract3 = extractorAttributify({

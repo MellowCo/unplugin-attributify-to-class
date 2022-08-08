@@ -20,6 +20,23 @@ exports[`attributify > extract1 1`] = `
       Button
     </button>
 
+    <button 
+      
+      
+      
+      
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4 my-attr-y-1 my-attr-x-2 my-attr-sm\\">
+      Button
+    </button>
+
+    <button 
+      
+      
+      
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+      Button
+    </button>
+
     <button class=\\"border border-red\\">
       Button
     </button>
@@ -27,6 +44,8 @@ exports[`attributify > extract1 1`] = `
     <button class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
+
+    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
@@ -86,8 +105,8 @@ exports[`attributify > extract2 1`] = `
     <button
       h-80 text-center flex flex-col align-center select-none all:transition-400
       bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
-      
-      class=\\"text-red font-bold bg-blue-500 bg-hover:blue-500 bg-dark:!blue-500 bg-dark:hover:blue-500\\"
+      li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
+      class=\\"text-red font-bold\\"
       :loading=\\"loading\\"
       my-class=\\"text-red font-bold\\"
       title=\\"this is title\\"
@@ -100,6 +119,23 @@ exports[`attributify > extract2 1`] = `
       Button
     </button>
 
+    <button 
+      text=\\"sm white\\"
+      font=\\"mono light\\"
+      p=\\"y-2 x-4\\"
+      my-attr=\\"y-1 x-2 sm\\"
+    >
+      Button
+    </button>
+
+    <button 
+      text=\\"sm white\\"
+      font=\\"mono light\\"
+      p=\\"y-2 x-4\\"
+    >
+      Button
+    </button>
+
     <button border=\\"~ red\\">
       Button
     </button>
@@ -107,6 +143,8 @@ exports[`attributify > extract2 1`] = `
     <button flex=\\"~ col wrap\\">
       Button
     </button>
+
+    <a text=\\"red\\" class=\\"text-blue\\">This conflicts with links' text prop</a>
 
     <button 
       bg=\\"blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600\\"
@@ -143,6 +181,23 @@ exports[`attributify > extract3 1`] = `
       Button
     </button>
 
+    <button 
+      
+      
+      
+      my-attr=\\"y-1 x-2 sm\\"
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+      Button
+    </button>
+
+    <button 
+      
+      
+      
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+      Button
+    </button>
+
     <button class=\\"border border-red\\">
       Button
     </button>
@@ -150,6 +205,8 @@ exports[`attributify > extract3 1`] = `
     <button class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
+
+    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
@@ -186,6 +243,23 @@ exports[`attributify > extract4 1`] = `
       Button
     </button>
 
+    <button 
+      
+      
+      
+      my-attr=\\"y-1 x-2 sm\\"
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+      Button
+    </button>
+
+    <button 
+      
+      
+      
+    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+      Button
+    </button>
+
     <button class=\\"border border-red\\">
       Button
     </button>
@@ -193,6 +267,8 @@ exports[`attributify > extract4 1`] = `
     <button class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
+
+    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
