@@ -12,12 +12,12 @@ importers:
       rollup: ^2.77.2
       tsup: ^6.2.1
       typescript: ^4.7.4
-      unplugin: ^0.9.0
+      unplugin: ^0.7.2
       vite: ^3.0.4
       vitest: ^0.21.0
       webpack: ^5.74.0
     dependencies:
-      unplugin: 0.9.0_rghlncyrsus75fl4xfvoztoch4
+      unplugin: 0.7.2_rghlncyrsus75fl4xfvoztoch4
     devDependencies:
       '@antfu/eslint-config': 0.25.2_qugx7qdu5zevzvxaiqyxfiwquq
       '@types/node': 18.6.4
@@ -3460,8 +3460,8 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /unplugin/0.9.0_rghlncyrsus75fl4xfvoztoch4:
-    resolution: {integrity: sha512-6o7q8Y9yxdPi5yCPmRuFfeNnVzGumRNZSK6hIkvZ6hd0cfigVdm0qBx/GgQ/NEjs54eUV1qTjvMYKRs9yh3rzw==}
+  /unplugin/0.7.2_rghlncyrsus75fl4xfvoztoch4:
+    resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
     peerDependencies:
       esbuild: '>=0.13'
       rollup: ^2.50.0
