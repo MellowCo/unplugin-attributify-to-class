@@ -111,7 +111,7 @@ export interface Options {
 ## Attributify Mode
 相关介绍见 [attributify-mode](https://github.com/unocss/unocss/tree/main/packages/preset-attributify#attributify-mode)   
 
-假设你有这个按钮使用原子化css。当列表变得很长时，阅读和维护就会变得非常困难。
+假设按钮使用原子化css, 当列表变得很长时，阅读和维护就会变得非常困难。
 
 使用 attributify mode ，您可以将实用程序分成多个属性
 
@@ -181,7 +181,7 @@ presetAttributifyWechat({
 ```
 ### 注意事项
 * Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
-* **会提取所有 valueless 属性，需要设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免被转换成 `class`**
+* **默认提取所有 valueless 属性，需要设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免被转换成 `class`，所以谨慎使用，谨慎使用，谨慎使用**
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
