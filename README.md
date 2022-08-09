@@ -211,7 +211,7 @@ presetAttributifyWechat({
 ```
 
 ```ts
-import presetAttributifyWechat, { defaultIgnoreNonValuedAttributes } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 presetAttributifyWechat({
   // 开启 valueless attributify
