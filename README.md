@@ -64,7 +64,7 @@ vite
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
 import transformWeClass from 'unplugin-transform-we-class/vite'
-import presetAttributifyWechat from 'unplugin-unocss-attributify-wechat/vite'
+import { presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 export default defineConfig({
   plugins: [
@@ -164,7 +164,7 @@ export interface Options {
 ```
 
 ```ts
-import presetAttributifyWechat, { defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
+import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
 
 presetAttributifyWechat({
   attributes: [...defaultAttributes, 'my-attr']
