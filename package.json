@@ -69,7 +69,8 @@
     "dev": "tsup --watch src",
     "build:fix": "esno scripts/postbuild.ts",
     "lint": "eslint .",
-    "play": "npm -C playground run dev",
+    "uniapp2": "npm run build && npm -C examples/uniapp_vue2 run dev:mp-weixin",
+    "uniapp3": "npm run build && npm -C examples/uniapp_vue3 run dev:mp-weixin",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
@@ -77,7 +78,8 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
-    "unplugin": "^0.9.0"
+    "unplugin": "^0.9.0",
+    "unplugin-transform-we-class": "^0.1.13"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.0",

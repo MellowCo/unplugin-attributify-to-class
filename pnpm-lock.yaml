@@ -1,37 +1,38 @@
 lockfileVersion: 5.4
 
-importers:
+specifiers:
+  '@antfu/eslint-config': ^0.26.0
+  '@rollup/pluginutils': ^4.2.1
+  '@types/node': ^18.6.4
+  bumpp: ^8.2.1
+  eslint: ^8.21.0
+  esno: ^0.16.3
+  rollup: ^2.77.2
+  tsup: ^6.2.1
+  typescript: ^4.7.4
+  unplugin: ^0.9.0
+  unplugin-transform-we-class: ^0.1.13
+  vite: ^3.0.4
+  vitest: ^0.21.0
+  webpack: ^5.74.0
 
-  .:
-    specifiers:
-      '@antfu/eslint-config': ^0.26.0
-      '@rollup/pluginutils': ^4.2.1
-      '@types/node': ^18.6.4
-      bumpp: ^8.2.1
-      eslint: ^8.21.0
-      esno: ^0.16.3
-      rollup: ^2.77.2
-      tsup: ^6.2.1
-      typescript: ^4.7.4
-      unplugin: ^0.9.0
-      vite: ^3.0.4
-      vitest: ^0.21.0
-      webpack: ^5.74.0
-    dependencies:
-      '@rollup/pluginutils': 4.2.1
-      unplugin: 0.9.0_rghlncyrsus75fl4xfvoztoch4
-    devDependencies:
-      '@antfu/eslint-config': 0.26.0_qugx7qdu5zevzvxaiqyxfiwquq
-      '@types/node': 18.6.4
-      bumpp: 8.2.1
-      eslint: 8.21.0
-      esno: 0.16.3
-      rollup: 2.77.2
-      tsup: 6.2.1_typescript@4.7.4
-      typescript: 4.7.4
-      vite: 3.0.4
-      vitest: 0.21.0
-      webpack: 5.74.0
+dependencies:
+  '@rollup/pluginutils': 4.2.1
+  unplugin: 0.9.0_rghlncyrsus75fl4xfvoztoch4
+  unplugin-transform-we-class: 0.1.13_rghlncyrsus75fl4xfvoztoch4
+
+devDependencies:
+  '@antfu/eslint-config': 0.26.0_qugx7qdu5zevzvxaiqyxfiwquq
+  '@types/node': 18.6.4
+  bumpp: 8.2.1
+  eslint: 8.21.0
+  esno: 0.16.3
+  rollup: 2.77.2
+  tsup: 6.2.1_typescript@4.7.4
+  typescript: 4.7.4
+  vite: 3.0.4
+  vitest: 0.21.0
+  webpack: 5.74.0
 
 packages:
 
@@ -3352,6 +3353,18 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: true
+
+  /unplugin-transform-we-class/0.1.13_rghlncyrsus75fl4xfvoztoch4:
+    resolution: {integrity: sha512-CseC85qYoYk802PIm3MFau4geLq9SzoT9EHUjboEYc5Xj4w/B/cPYv4DTY1n7Bd/T0b/IARH2AOEGv+WaCf26Q==}
+    dependencies:
+      '@rollup/pluginutils': 4.2.1
+      unplugin: 0.9.0_rghlncyrsus75fl4xfvoztoch4
+    transitivePeerDependencies:
+      - esbuild
+      - rollup
+      - vite
+      - webpack
+    dev: false
 
   /unplugin/0.9.0_rghlncyrsus75fl4xfvoztoch4:
     resolution: {integrity: sha512-6o7q8Y9yxdPi5yCPmRuFfeNnVzGumRNZSK6hIkvZ6hd0cfigVdm0qBx/GgQ/NEjs54eUV1qTjvMYKRs9yh3rzw==}
