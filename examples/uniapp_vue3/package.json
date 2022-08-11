@@ -55,9 +55,9 @@
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3040820220424001",
     "typescript": "^4.7.3",
     "unocss": "^0.45.5",
-    "unocss-preset-weapp": "link:../../",
+    "unocss-preset-weapp": "^0.1.7",
     "unplugin-transform-we-class": "^0.1.12",
-    "unplugin-unocss-attributify-wechat": "^0.1.7",
+    "unplugin-unocss-attributify-wechat": "link:../../",
     "vite": "^2.9.13"
   }
 }

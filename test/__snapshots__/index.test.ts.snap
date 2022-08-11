@@ -25,7 +25,7 @@ exports[`attributify > extract1 1`] = `
       
       
       
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4 my-attr-y-1 my-attr-x-2 my-attr-sm\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4 my-attr-y-1 my-attr-x-2 my-attr-sm\\">
       Button
     </button>
 
@@ -33,19 +33,19 @@ exports[`attributify > extract1 1`] = `
       
       
       
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
       Button
     </button>
 
-    <button class=\\"border border-red\\">
+    <button  class=\\"border border-red\\">
       Button
     </button>
 
-    <button class=\\"flex flex-col flex-wrap\\">
+    <button  class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
 
-    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
+    <a  un-text=\\"blue\\" class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
@@ -53,7 +53,13 @@ exports[`attributify > extract1 1`] = `
       
       
       
-    class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+      Button
+    </button>
+
+    <button 
+      
+     class=\\"bg-#333 bg-grey-200 bg-[#444]/40 bg-red/50\\">
       Button
     </button>
 
@@ -159,7 +165,7 @@ exports[`attributify > extract2 1`] = `
       Button
     </button>
 
-    <a text=\\"red\\" class=\\"text-blue\\">This conflicts with links' text prop</a>
+    <a text=\\"red\\"  class=\\"text-blue\\">This conflicts with links' text prop</a>
 
     <button 
       bg=\\"blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600\\"
@@ -167,6 +173,12 @@ exports[`attributify > extract2 1`] = `
       font=\\"mono light\\"
       p=\\"y-2 x-4\\"
       border=\\"2 rounded blue-200\\"
+    >
+      Button
+    </button>
+
+    <button 
+      bg=\\"#333 grey-200 [#444]/40 red/50\\"
     >
       Button
     </button>
@@ -253,7 +265,7 @@ exports[`attributify > extract3 1`] = `
       
       
       my-attr=\\"y-1 x-2 sm\\"
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
       Button
     </button>
 
@@ -261,19 +273,19 @@ exports[`attributify > extract3 1`] = `
       
       
       
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
       Button
     </button>
 
-    <button class=\\"border border-red\\">
+    <button  class=\\"border border-red\\">
       Button
     </button>
 
-    <button class=\\"flex flex-col flex-wrap\\">
+    <button  class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
 
-    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
+    <a  un-text=\\"blue\\" class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
@@ -281,7 +293,13 @@ exports[`attributify > extract3 1`] = `
       
       
       
-    class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+      Button
+    </button>
+
+    <button 
+      
+     class=\\"bg-#333 bg-grey-200 bg-[#444]/40 bg-red/50\\">
       Button
     </button>
 
@@ -293,39 +311,39 @@ exports[`attributify > extract3 1`] = `
 exports[`attributify > extract3 2`] = `
 "
 <template>
-  <div h-80  flex    class=\\"text-center flex-col align-center select-none all:transition-400\\">
-    <input type=\\"checkbox\\"  class=\\"peer mt-a\\">
-    <div   peer-checked=\\"text-4xl\\"class=\\"mb-a group\\">
+  <div h-80  flex     class=\\"text-center flex-col align-center select-none all:transition-400\\">
+    <input type=\\"checkbox\\"   class=\\"peer mt-a\\">
+    <div   peer-checked=\\"text-4xl\\" class=\\"mb-a group\\">
       <div
            
         bg-gradient=\\"to-r from-yellow-400 via-red-500 to-pink-500\\"
-      class=\\"font-100 text-4xl mb--3 p-10\\">
+       class=\\"font-100 text-4xl mb--3 p-10\\">
         ~
       </div>
-      <div   sm=\\"bg-blue-600\\"class=\\"text-5xl font-100\\">
+      <div   sm=\\"bg-blue-600\\" class=\\"text-5xl font-100\\">
         unocss
       </div>
-      <div     group-hover=\\"text-teal-400 op-50\\"class=\\"op-20 font-200 mt-1 tracking-wider\\">
+      <div     group-hover=\\"text-teal-400 op-50\\" class=\\"op-20 font-200 mt-1 tracking-wider\\">
         Re-imaging Atomic CSS
       </div>
     </div>
   </div>
   <div flex>
-    <div    class=\\"ma inline-flex relative h-14\\">
+    <div     class=\\"ma inline-flex relative h-14\\">
       <input type=\\"text\\"      
       placeholder=\\"unocss\\" 
-      un-placeholder=\\"text-red\\"class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
+      un-placeholder=\\"text-red\\" class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
       <label      top=\\"1/3\\" transition=\\"200 linear\\"
         peer-not-placeholder-shown=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
         peer-focus=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
         before=\\"content-!\\"
         after=\\"content-[!]\\"
-      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
+       class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
     </div>
   </div>
 </template>
 
-<script  lang=\\"ts\\" class=\\"setup\\">
+<script  lang=\\"ts\\"  class=\\"setup\\">
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 onLaunch(() => {
   console.log('App Launch')
@@ -367,7 +385,7 @@ exports[`attributify > extract4 1`] = `
       
       
       my-attr=\\"y-1 x-2 sm\\"
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
       Button
     </button>
 
@@ -375,19 +393,19 @@ exports[`attributify > extract4 1`] = `
       
       
       
-    class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
+     class=\\"text-sm text-white font-mono font-light p-y-2 p-x-4\\">
       Button
     </button>
 
-    <button class=\\"border border-red\\">
+    <button  class=\\"border border-red\\">
       Button
     </button>
 
-    <button class=\\"flex flex-col flex-wrap\\">
+    <button  class=\\"flex flex-col flex-wrap\\">
       Button
     </button>
 
-    <a  un-text=\\"blue\\"class=\\"text-red\\">This conflicts with links' text prop</a>
+    <a  un-text=\\"blue\\" class=\\"text-red\\">This conflicts with links' text prop</a>
 
     <button 
       
@@ -395,7 +413,13 @@ exports[`attributify > extract4 1`] = `
       
       
       
-    class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover:blue-500 bg-dark:blue-500 bg-dark:hover:blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+      Button
+    </button>
+
+    <button 
+      
+     class=\\"bg-#333 bg-grey-200 bg-[#444]/40 bg-red/50\\">
       Button
     </button>
 
@@ -407,34 +431,34 @@ exports[`attributify > extract4 1`] = `
 exports[`attributify > extract4 2`] = `
 "
 <template>
-  <div       class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400\\">
-    <input type=\\"checkbox\\"  class=\\"peer mt-a\\">
-    <div   peer-checked=\\"text-4xl\\"class=\\"mb-a group\\">
+  <div        class=\\"h-80 text-center flex flex-col align-center select-none all:transition-400\\">
+    <input type=\\"checkbox\\"   class=\\"peer mt-a\\">
+    <div   peer-checked=\\"text-4xl\\" class=\\"mb-a group\\">
       <div
            
         bg-gradient=\\"to-r from-yellow-400 via-red-500 to-pink-500\\"
-      class=\\"font-100 text-4xl mb--3 p-10\\">
+       class=\\"font-100 text-4xl mb--3 p-10\\">
         ~
       </div>
-      <div   sm=\\"bg-blue-600\\"class=\\"text-5xl font-100\\">
+      <div   sm=\\"bg-blue-600\\" class=\\"text-5xl font-100\\">
         unocss
       </div>
-      <div     group-hover=\\"text-teal-400 op-50\\"class=\\"op-20 font-200 mt-1 tracking-wider\\">
+      <div     group-hover=\\"text-teal-400 op-50\\" class=\\"op-20 font-200 mt-1 tracking-wider\\">
         Re-imaging Atomic CSS
       </div>
     </div>
   </div>
-  <div class=\\"flex\\">
-    <div    class=\\"ma inline-flex relative h-14\\">
+  <div  class=\\"flex\\">
+    <div     class=\\"ma inline-flex relative h-14\\">
       <input type=\\"text\\"      
       placeholder=\\"unocss\\" 
-      un-placeholder=\\"text-red\\"class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
+      un-placeholder=\\"text-red\\" class=\\"m-0 pt-4 px-4 text-true-gray-800 peer\\">
       <label      top=\\"1/3\\" transition=\\"200 linear\\"
         peer-not-placeholder-shown=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
         peer-focus=\\"-translate-y-4 scale-75 origin-top-left text-green-500\\"
         before=\\"content-!\\"
         after=\\"content-[!]\\"
-      class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
+       class=\\"absolute leading-1rem left-4 pointer-events-none text-gray-7\\">Experience now</label>
     </div>
   </div>
 </template>

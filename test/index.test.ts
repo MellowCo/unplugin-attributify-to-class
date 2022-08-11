@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { defaultAttributes, extractorAttributify } from '../src/core/extractor'
+import { defaultAttributes, extractorAttributify } from '../src/core'
 
 describe('attributify', () => {
   const fixture1 = `
@@ -54,6 +54,12 @@ describe('attributify', () => {
       font="mono light"
       p="y-2 x-4"
       border="2 rounded blue-200"
+    >
+      Button
+    </button>
+
+    <button 
+      bg="#333 grey-200 [#444]/40 red/50"
     >
       Button
     </button>
