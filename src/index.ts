@@ -1,7 +1,7 @@
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
 import type { Options } from './types'
-import { extractorAttributify } from './core/extractor'
+import { extractorAttributify } from './core'
 
 const filter = createFilter(
   [/\.[jt]sx?$/, /\.vue$/, /\.vue\?vue/],

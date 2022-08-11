@@ -34,4 +34,10 @@ export interface Options {
    * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
+
+  /**
+   * 转换转义字符 [ # $
+   * @default true
+   */
+  transfromEscape?: boolean
 }

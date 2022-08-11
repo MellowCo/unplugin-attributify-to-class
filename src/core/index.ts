@@ -1,5 +1,5 @@
+import { transformSelector } from 'unplugin-transform-we-class/utils'
 import type { Options } from '../types'
-import { isValidSelector } from './utils'
 
 const strippedPrefixes = [
   'v-bind:',
@@ -9,6 +9,12 @@ const strippedPrefixes = [
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
+
+const validateFilterRE = /(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:%-?]/
+
+function isValidSelector(selector = ''): selector is string {
+  return validateFilterRE.test(selector)
+}
 
 export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
 export const defaultIgnoreNonValuedAttributes = ['setup', 'scoped']
@@ -41,6 +47,7 @@ export const extractorAttributify = (options?: Options): any => {
   const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? defaultIgnoreNonValuedAttributes
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false
+  const transfromEscape = options?.transfromEscape ?? true
 
   return function extract(code: string) {
     const result: TransformOption[] = []
@@ -64,7 +71,7 @@ export const extractorAttributify = (options?: Options): any => {
               // 不是忽略的非值属性
               if (!ignoreNonValuedAttributes.includes(name)) {
                 option.tempStr = option.tempStr.replace(name, '')
-                option.selectors.push(name)
+                option.selectors.push(transfromEscape ? transformSelector(name) : name)
               }
             }
             return
@@ -85,15 +92,16 @@ export const extractorAttributify = (options?: Options): any => {
           if (['class', 'className'].includes(name)) {
             option.staticClass = sourceStr
           }
+
           else {
             if (prefixedOnly && !name.startsWith(prefix))
               return
 
-            // 处理 bg="blue-400 hover:blue-500 dark:!blue-500 dark:hover:blue-600"
+            // 处理 bg="blue-400"
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
-              .map(v => v === '~' ? _name : `${_name}-${v}`).join(' ')
+              .map(v => v === '~' ? _name : `${_name}-${transfromEscape ? transformSelector(v) : v}`).join(' ')
 
             option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)
