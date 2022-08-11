@@ -46,16 +46,16 @@ export default {
       This conflicts with links' text prop
     </text>
 
-    <view bg="#333">
+    <view bg="#999">
       111
     </view>
 
     <view bg="[#9b59b6]/50">
-      111
+      222
     </view>
 
     <view bg="#2ecc71:50">
-      111
+      333
     </view>
   </view>
 </template>

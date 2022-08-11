@@ -51,11 +51,11 @@ export default {
     </view>
 
     <view bg="[#9b59b6]/50">
-      111
+      222
     </view>
 
     <view bg="#2ecc71:50">
-      111
+      333
     </view>
   </view>
 </template>
