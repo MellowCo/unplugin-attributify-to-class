@@ -64,21 +64,43 @@ vite
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
 import transformWeClass from 'unplugin-transform-we-class/vite'
-import { presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 export default defineConfig({
   plugins: [
-    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-    presetAttributifyWechat(options),
-
     // https://github.com/antfu/unocss
     Unocss(),
+    
+    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+    presetAttributifyWechat(options),
 
     // https://github.com/MellowCo/unplugin-transform-we-class
     transformWeClass(),
   ],
 })
 
+```
+
+webpack
+```js
+const UnoCSS = require('@unocss/webpack').default
+const transformWeClass = require('unplugin-transform-we-class/webpack')
+const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-unocss-attributify-wechat/webpack')
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      // https://github.com/unocss/unocss
+      UnoCSS(),
+      
+      // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+      presetAttributifyWechat(options),
+      
+      // https://github.com/MellowCo/unplugin-transform-we-class
+      transformWeClass(),
+    ],
+  },
+}
 ```
 
 ## options
@@ -119,6 +141,12 @@ export interface Options {
    * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
+  
+  /**
+   * 转换转义字符 [ # $
+   * @default true
+   */
+  transfromEscape?: boolean
 }
 ```
 
@@ -240,3 +268,12 @@ presetAttributifyWechat({
   prefixedOnly: true,
 })
 ```
+
+## transfromEscape
+针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示，
+
+将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
+
+默认开启，[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
+
+
