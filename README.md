@@ -275,5 +275,9 @@ presetAttributifyWechat({
 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
 默认开启，[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
-
+```ts
+presetAttributifyWechat({
+  transfromEscape: true
+})
+```
 
