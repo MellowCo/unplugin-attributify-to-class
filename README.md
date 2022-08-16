@@ -15,7 +15,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 * [unocss-webpack-uniapp2](https://github.com/MellowCo/unocss-webpack-uniapp2#unocss-webpack-uniapp2) - 兼容 UniApp Vue2 App开发插件
 * [uni-vue3-starter](https://github.com/MellowCo/uni-vue3-starter) - Uniapp-Vite 模版
 
-`uniapp` ,`taro` 使用文档，见 [github](https://github.com/MellowCo/unocss-preset-weapp) [掘金](https://juejin.cn/post/7116730180252467236/)
+`uniapp` `taro` 使用文档，见 [github](https://github.com/MellowCo/unocss-preset-weapp) [掘金](https://juejin.cn/post/7116730180252467236/)
 
 
 ## 原因
@@ -270,7 +270,7 @@ presetAttributifyWechat({
 ```
 
 ## transfromEscape
-针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示，
+针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
 
 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
