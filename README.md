@@ -166,8 +166,6 @@ export interface Options {
 ```
 
 默认转换的属性列表为 ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']   
-
-使用 `attributes` , 添加新的属性
 ```html
 <button 
   text="sm white"
@@ -178,18 +176,14 @@ export interface Options {
   Button
 </button>
 ```
-转换后
+
 ```html
 <button class="text-sm text-white font-mono font-light p-y-2 p-x-4" my-attr="y-1 x-2 sm">
   Button
 </button>
 ```
-添加 `attributes` 后
-```html
-<button class="my-attr-y-1 my-attr-x-2 my-attr-sm text-sm text-white font-mono font-light p-y-2 p-x-4">
-  Button
-</button>
-```
+
+使用 `attributes` , 添加新的属性
 
 ```ts
 import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
@@ -198,6 +192,13 @@ presetAttributifyWechat({
   attributes: [...defaultAttributes, 'my-attr']
 })
 ```
+
+```html
+<button class="my-attr-y-1 my-attr-x-2 my-attr-sm text-sm text-white font-mono font-light p-y-2 p-x-4">
+  Button
+</button>
+```
+
 
 ### 前缀自参照
 对于 `flex`、`grid`、`border` 等具有与前缀相同的实用程序，将提供一个特殊的 `~` 值
@@ -228,16 +229,12 @@ presetAttributifyWechat({
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
-转换后
+转换后，会将 `my-prop` `is-top` 提取到 `class`中
 ```html
 <button class="m-2 rounded text-teal-400 my-prop is-top" />
 ```
 
-配置 `ignoreNonValuedAttributes` 后
-```html
-<button class="m-2 rounded text-teal-400" my-prop is-top/>
-```
-
+配置 `ignoreNonValuedAttributes` 忽略 `my-prop` `is-top`
 ```ts
 import { defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
@@ -247,6 +244,10 @@ presetAttributifyWechat({
   // 忽略的非值属性列表
   ignoreNonValuedAttributes: [...defaultIgnoreNonValuedAttributes, 'my-prop', 'is-top']
 })
+```
+
+```html
+<button class="m-2 rounded text-teal-400" my-prop is-top/>
 ```
 
 ## Properties Conflicts
