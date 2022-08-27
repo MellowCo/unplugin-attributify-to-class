@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { defaultAttributes, extractorAttributify } from '../src/core'
+import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
+import {fuiButton} from './assets';
 
 describe('attributify', () => {
   const fixture1 = `
@@ -102,7 +103,7 @@ describe('attributify', () => {
   </div>
 </template>
 
-<script  lang="ts" setup>
+<script lang="ts" setup>
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 onLaunch(() => {
   console.log('App Launch')
@@ -124,6 +125,7 @@ onHide(() => {
       'my-attr',
     ],
   })
+
   const extract2 = extractorAttributify({
     prefixedOnly: true,
     prefix: 'un-',
@@ -136,6 +138,14 @@ onHide(() => {
 
   const extract4 = extractorAttributify({
     nonValuedAttribute: true,
+  })
+
+  const extract5 = extractorAttributify({
+    attributes: [...defaultAttributes, 'my-attr'],
+    ignoreNonValuedAttributes: [...defaultIgnoreNonValuedAttributes, 'my-ignore'],
+    nonValuedAttribute: true,
+    prefix: 'li-',
+    prefixedOnly: true,
   })
 
   test('extract1', async () => {
@@ -157,4 +167,9 @@ onHide(() => {
     expect(extract4(fixture1)).toMatchSnapshot()
     expect(extract4(fixture2)).toMatchSnapshot()
   })
+
+  test('extract5', async () => {
+    expect(extract5(fuiButton)).toMatchSnapshot()
+  })
+
 })
