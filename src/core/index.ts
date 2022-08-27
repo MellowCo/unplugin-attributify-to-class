@@ -4,11 +4,13 @@ import type { Options } from '../types'
 const strippedPrefixes = [
   'v-bind:',
   ':',
+  '@',
+  'v-on',
 ]
 
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
-const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:!%-]+)(?:=(["'])([^\2]*?)\2)?/g
+const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:@.!%-]+)(?:=(["'])([^\2]*?)\2)?/g
 
 const validateFilterRE = /(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:%-?]/
 
@@ -78,7 +80,7 @@ export const extractorAttributify = (options?: Options): any => {
           }
 
           for (const prefix of strippedPrefixes) {
-            // 如果是 : v-bind: 开头的属性，则不处理
+            // 如果是 : v-bind @ v-on 开头的属性，则不处理
             if (name.startsWith(prefix)) {
               name = name.slice(prefix.length)
               return
