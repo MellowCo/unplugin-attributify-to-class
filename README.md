@@ -70,7 +70,7 @@ export default defineConfig({
   plugins: [
     // https://github.com/antfu/unocss
     Unocss(),
-    
+
     // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
     presetAttributifyWechat(options),
 
@@ -92,10 +92,10 @@ module.exports = {
     plugins: [
       // https://github.com/unocss/unocss
       UnoCSS(),
-      
+
       // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
       presetAttributifyWechat(options),
-      
+
       // https://github.com/MellowCo/unplugin-transform-we-class
       transformWeClass(),
     ],
@@ -141,12 +141,43 @@ export interface Options {
    * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
-  
+
   /**
    * 转换转义字符 [ # $
    * @default true
    */
   transfromEscape?: boolean
+
+  /**
+   * 自定义转换规则
+   * @default
+   * {
+      '.': '-d-',
+      '/': '-s-',
+      ':': '-c-',
+      '%': '-p-',
+      '!': '-e-',
+      '#': '-w-',
+      '(': '-bl-',
+      ')': '-br-',
+      '[': '-fl-',
+      ']': '-fr-',
+      '$': '-r-',
+    }
+   */
+  transfromRules?: Record<string, string>
+
+  /**
+   * 排除转换目标
+   * @default [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/]
+   */
+  exclude?: FilterPattern
+
+  /**
+    * 需要转换的目标
+    * @default [/\.[jt]sx?$/, /\.vue$/,  /\.vue\?vue/]
+    */
+  include?: FilterPattern
 }
 ```
 
@@ -186,7 +217,7 @@ export interface Options {
 使用 `attributes` , 添加新的属性
 
 ```ts
-import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 presetAttributifyWechat({
   attributes: [...defaultAttributes, 'my-attr']
@@ -271,14 +302,39 @@ presetAttributifyWechat({
 ```
 
 ## transfromEscape
-针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
+> 针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
+> 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
-将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
+* 默认开启，设置 `transfromEscape`
+* 通过 `transfromRules` 设置自定义转换规则
 
-默认开启，[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
+
+[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
 ```ts
 presetAttributifyWechat({
-  transfromEscape: true
+  transfromEscape: true,
+  transfromRules: {
+    '.': '-d-',
+    '/': '-s-',
+    ':': '-c-',
+    '%': '-p-',
+    '!': '-e-',
+    '#': '-w-',
+    '(': '-bl-',
+    ')': '-br-',
+    '[': '-fl-',
+    ']': '-fr-',
+    '$': '-r-',
+  }
 })
 ```
 
+## include exclude
+> 自定义转换的目标
+
+```ts
+presetAttributifyWechat({
+  exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]my-folder[\\/]/],
+  include: [/\.vue$/, /\.vue\?vue/]
+})
+```
