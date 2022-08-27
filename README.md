@@ -15,7 +15,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 * [unocss-webpack-uniapp2](https://github.com/MellowCo/unocss-webpack-uniapp2#unocss-webpack-uniapp2) - 兼容 UniApp Vue2 App开发插件
 * [uni-vue3-starter](https://github.com/MellowCo/uni-vue3-starter) - Uniapp-Vite 模版
 
-`uniapp` ,`taro` 使用文档，见 [github](https://github.com/MellowCo/unocss-preset-weapp) [掘金](https://juejin.cn/post/7116730180252467236/)
+`uniapp` `taro` 使用文档，见 [github](https://github.com/MellowCo/unocss-preset-weapp) [掘金](https://juejin.cn/post/7116730180252467236/)
 
 
 ## 原因
@@ -64,21 +64,43 @@ vite
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
 import transformWeClass from 'unplugin-transform-we-class/vite'
-import { presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 export default defineConfig({
   plugins: [
-    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-    presetAttributifyWechat(options),
-
     // https://github.com/antfu/unocss
     Unocss(),
+    
+    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+    presetAttributifyWechat(options),
 
     // https://github.com/MellowCo/unplugin-transform-we-class
     transformWeClass(),
   ],
 })
 
+```
+
+webpack
+```js
+const UnoCSS = require('@unocss/webpack').default
+const transformWeClass = require('unplugin-transform-we-class/webpack')
+const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-unocss-attributify-wechat/webpack')
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      // https://github.com/unocss/unocss
+      UnoCSS(),
+      
+      // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+      presetAttributifyWechat(options),
+      
+      // https://github.com/MellowCo/unplugin-transform-we-class
+      transformWeClass(),
+    ],
+  },
+}
 ```
 
 ## options
@@ -119,6 +141,12 @@ export interface Options {
    * @default ['setup', 'scoped']
    */
   ignoreNonValuedAttributes?: string[]
+  
+  /**
+   * 转换转义字符 [ # $
+   * @default true
+   */
+  transfromEscape?: boolean
 }
 ```
 
@@ -138,8 +166,6 @@ export interface Options {
 ```
 
 默认转换的属性列表为 ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']   
-
-使用 `attributes` , 添加新的属性
 ```html
 <button 
   text="sm white"
@@ -150,18 +176,14 @@ export interface Options {
   Button
 </button>
 ```
-转换后
+
 ```html
 <button class="text-sm text-white font-mono font-light p-y-2 p-x-4" my-attr="y-1 x-2 sm">
   Button
 </button>
 ```
-添加 `attributes` 后
-```html
-<button class="my-attr-y-1 my-attr-x-2 my-attr-sm text-sm text-white font-mono font-light p-y-2 p-x-4">
-  Button
-</button>
-```
+
+使用 `attributes` , 添加新的属性
 
 ```ts
 import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
@@ -170,6 +192,13 @@ presetAttributifyWechat({
   attributes: [...defaultAttributes, 'my-attr']
 })
 ```
+
+```html
+<button class="my-attr-y-1 my-attr-x-2 my-attr-sm text-sm text-white font-mono font-light p-y-2 p-x-4">
+  Button
+</button>
+```
+
 
 ### 前缀自参照
 对于 `flex`、`grid`、`border` 等具有与前缀相同的实用程序，将提供一个特殊的 `~` 值
@@ -200,16 +229,12 @@ presetAttributifyWechat({
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
-转换后
+转换后，会将 `my-prop` `is-top` 提取到 `class`中
 ```html
 <button class="m-2 rounded text-teal-400 my-prop is-top" />
 ```
 
-配置 `ignoreNonValuedAttributes` 后
-```html
-<button class="m-2 rounded text-teal-400" my-prop is-top/>
-```
-
+配置 `ignoreNonValuedAttributes` 忽略 `my-prop` `is-top`
 ```ts
 import { defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
@@ -219,6 +244,10 @@ presetAttributifyWechat({
   // 忽略的非值属性列表
   ignoreNonValuedAttributes: [...defaultIgnoreNonValuedAttributes, 'my-prop', 'is-top']
 })
+```
+
+```html
+<button class="m-2 rounded text-teal-400" my-prop is-top/>
 ```
 
 ## Properties Conflicts
@@ -240,3 +269,16 @@ presetAttributifyWechat({
   prefixedOnly: true,
 })
 ```
+
+## transfromEscape
+针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
+
+将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
+
+默认开启，[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
+```ts
+presetAttributifyWechat({
+  transfromEscape: true
+})
+```
+
