@@ -1,4 +1,4 @@
-import { transformSelector } from 'unplugin-transform-we-class/utils'
+import { defaultRules, transformSelector } from 'unplugin-transform-we-class/utils'
 import type { Options } from '../types'
 
 const strippedPrefixes = [
@@ -50,6 +50,7 @@ export const extractorAttributify = (options?: Options): any => {
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false
   const transfromEscape = options?.transfromEscape ?? true
+  const transfromRules = options?.transfromRules ?? defaultRules
 
   return function extract(code: string) {
     const result: TransformOption[] = []
@@ -73,7 +74,7 @@ export const extractorAttributify = (options?: Options): any => {
               // 不是忽略的非值属性
               if (!ignoreNonValuedAttributes.includes(name)) {
                 option.tempStr = option.tempStr.replace(name, '')
-                option.selectors.push(transfromEscape ? transformSelector(name) : name)
+                option.selectors.push(transfromEscape ? transformSelector(name, transfromRules) : name)
               }
             }
             return
@@ -103,7 +104,7 @@ export const extractorAttributify = (options?: Options): any => {
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
-              .map(v => v === '~' ? _name : `${_name}-${transfromEscape ? transformSelector(v) : v}`).join(' ')
+              .map(v => v === '~' ? _name : `${_name}-${transfromEscape ? transformSelector(v, transfromRules) : v}`).join(' ')
 
             option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)

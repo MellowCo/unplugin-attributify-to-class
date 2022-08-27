@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
-import {fuiButton} from './assets';
+import { fuiButton } from './assets'
 
 describe('attributify', () => {
   const fixture1 = `
@@ -119,6 +119,13 @@ onHide(() => {
 <style></style>
 `
 
+  const escapeStr = `
+<button 
+bg="#333 grey-200 [#444]/40 red/50"
+>
+Button
+</button>`
+
   const extract1 = extractorAttributify({
     attributes: [
       ...defaultAttributes,
@@ -148,6 +155,22 @@ onHide(() => {
     prefixedOnly: true,
   })
 
+  const extract6 = extractorAttributify({
+    transfromRules: {
+      '.': '-dr-',
+      '/': '-sr-',
+      ':': '-cr-',
+      '%': '-pr-',
+      '!': '-er-',
+      '#': '-wr-',
+      '(': '-blr-',
+      ')': '-brr-',
+      '[': '-flr-',
+      ']': '-frr-',
+      '$': '-rr-',
+    },
+  })
+
   test('extract1', async () => {
     expect(extract1(fixture1)).toMatchSnapshot()
     expect(extract1(fixture2)).toMatchSnapshot()
@@ -172,4 +195,8 @@ onHide(() => {
     expect(extract5(fuiButton)).toMatchSnapshot()
   })
 
+  test('escapeStr', () => {
+    expect(extract1(escapeStr)).toMatchSnapshot()
+    expect(extract6(escapeStr)).toMatchSnapshot()
+  })
 })

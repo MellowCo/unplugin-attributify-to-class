@@ -1,5 +1,23 @@
 // Vitest Snapshot v1
 
+exports[`attributify > escapeStr 1`] = `
+"
+<button 
+
+ class=\\"bg--w-333 bg-grey-200 bg--fl--w-444-fr--s-40 bg-red-s-50\\">
+Button
+</button>"
+`;
+
+exports[`attributify > escapeStr 2`] = `
+"
+<button 
+
+ class=\\"bg--wr-333 bg-grey-200 bg--flr--wr-444-frr--sr-40 bg-red-sr-50\\">
+Button
+</button>"
+`;
+
 exports[`attributify > extract1 1`] = `
 "
   <view >

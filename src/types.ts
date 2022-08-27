@@ -40,4 +40,23 @@ export interface Options {
    * @default true
    */
   transfromEscape?: boolean
+
+  /**
+   * 自定义转换规则
+   * @default
+   * {
+      '.': '-d-',
+      '/': '-s-',
+      ':': '-c-',
+      '%': '-p-',
+      '!': '-e-',
+      '#': '-w-',
+      '(': '-bl-',
+      ')': '-br-',
+      '[': '-fl-',
+      ']': '-fr-',
+      '$': '-r-',
+    }
+   */
+  transfromRules?: Record<string, string>
 }
