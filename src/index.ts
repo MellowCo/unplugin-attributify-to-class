@@ -3,13 +3,13 @@ import { createFilter } from '@rollup/pluginutils'
 import type { Options } from './types'
 import { extractorAttributify } from './core'
 
-const filter = createFilter(
-  [/\.[jt]sx?$/, /\.vue$/, /\.vue\?vue/],
-  [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/],
-)
-
 export default createUnplugin<Options>((options) => {
   const extractor = extractorAttributify(options)
+
+  const filter = createFilter(
+    options.include || [/\.[jt]sx?$/, /\.vue$/, /\.vue\?vue/],
+    options.exclude || [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/],
+  )
 
   return {
     name: 'unplugin-unocss-attributify-wechat',
