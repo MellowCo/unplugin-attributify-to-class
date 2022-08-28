@@ -41,7 +41,7 @@ export interface Options {
    * 转换转义字符 [ # $
    * @default true
    */
-  transfromEscape?: boolean
+  transformEscape?: boolean
 
   /**
    * 自定义转换规则
@@ -60,7 +60,7 @@ export interface Options {
       '$': '-r-',
     }
    */
-  transfromRules?: Record<string, string>
+  transformRules?: Record<string, string>
 
   /**
    * 排除转换目标

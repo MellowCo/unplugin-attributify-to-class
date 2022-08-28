@@ -49,8 +49,8 @@ export const extractorAttributify = (options?: Options): any => {
   const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? defaultIgnoreNonValuedAttributes
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false
-  const transfromEscape = options?.transfromEscape ?? true
-  const transfromRules = options?.transfromRules ?? defaultRules
+  const transformEscape = options?.transformEscape ?? true
+  const transformRules = options?.transformRules ?? defaultRules
 
   return function extract(code: string) {
     const result: TransformOption[] = []
@@ -74,7 +74,7 @@ export const extractorAttributify = (options?: Options): any => {
               // 不是忽略的非值属性
               if (!ignoreNonValuedAttributes.includes(name)) {
                 // option.tempStr = option.tempStr.replace(name, '')
-                option.selectors.push(transfromEscape ? transformSelector(name, transfromRules) : name)
+                option.selectors.push(transformEscape ? transformSelector(name, transformRules) : name)
               }
             }
             return
@@ -104,7 +104,7 @@ export const extractorAttributify = (options?: Options): any => {
             const attributifyToClass = content
               .split(splitterRE)
               .filter(Boolean)
-              .map(v => v === '~' ? _name : `${_name}-${transfromEscape ? transformSelector(v, transfromRules) : v}`).join(' ')
+              .map(v => v === '~' ? _name : `${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
 
             // option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)

@@ -146,7 +146,7 @@ export interface Options {
    * 转换转义字符 [ # $
    * @default true
    */
-  transfromEscape?: boolean
+  transformEscape?: boolean
 
   /**
    * 自定义转换规则
@@ -165,7 +165,7 @@ export interface Options {
       '$': '-r-',
     }
    */
-  transfromRules?: Record<string, string>
+  transformRules?: Record<string, string>
 
   /**
    * 排除转换目标
@@ -301,19 +301,19 @@ presetAttributifyWechat({
 })
 ```
 
-## transfromEscape
+## transformEscape
 > 针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
 > 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
-* 默认开启，设置 `transfromEscape`
-* 通过 `transfromRules` 设置自定义转换规则
+* 默认开启，设置 `transformEscape`
+* 通过 `transformRules` 设置自定义转换规则
 
 
 [转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
 ```ts
 presetAttributifyWechat({
-  transfromEscape: true,
-  transfromRules: {
+  transformEscape: true,
+  transformRules: {
     '.': '-d-',
     '/': '-s-',
     ':': '-c-',

@@ -156,7 +156,7 @@ Button
   })
 
   const extract6 = extractorAttributify({
-    transfromRules: {
+    transformRules: {
       '.': '-dr-',
       '/': '-sr-',
       ':': '-cr-',
