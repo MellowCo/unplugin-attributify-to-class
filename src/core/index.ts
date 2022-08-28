@@ -73,7 +73,7 @@ export const extractorAttributify = (options?: Options): any => {
             if (isValidSelector(name) && nonValuedAttribute !== false) {
               // 不是忽略的非值属性
               if (!ignoreNonValuedAttributes.includes(name)) {
-                option.tempStr = option.tempStr.replace(name, '')
+                // option.tempStr = option.tempStr.replace(name, '')
                 option.selectors.push(transfromEscape ? transformSelector(name, transfromRules) : name)
               }
             }
@@ -106,7 +106,7 @@ export const extractorAttributify = (options?: Options): any => {
               .filter(Boolean)
               .map(v => v === '~' ? _name : `${_name}-${transfromEscape ? transformSelector(v, transfromRules) : v}`).join(' ')
 
-            option.tempStr = option.tempStr.replace(sourceStr, '')
+            // option.tempStr = option.tempStr.replace(sourceStr, '')
             option.selectors.push(attributifyToClass)
           }
         })
