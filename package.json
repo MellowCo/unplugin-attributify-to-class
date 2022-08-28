@@ -79,13 +79,13 @@
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
     "unplugin": "^0.9.5",
-    "unplugin-transform-we-class": "^0.1.17"
+    "unplugin-transform-we-class": "^0.1.18"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.1",
     "@types/node": "^18.7.13",
     "bumpp": "^8.2.1",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "esno": "^0.16.3",
     "rollup": "^2.78.1",
     "tsup": "^6.2.3",
