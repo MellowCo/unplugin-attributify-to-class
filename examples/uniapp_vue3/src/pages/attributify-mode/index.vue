@@ -21,6 +21,7 @@ export default {
       text-base text-blue
       py-2 px-4
       m-4
+      @click.stop="() => { console.log(11) }"
     >
       Button
     </button>
