@@ -1,6 +1,7 @@
 # unplugin-unocss-attributify-wechat
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-unocss-attributify-wechat?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-unocss-attributify-wechat)
+[![Version](https://img.shields.io/npm/v/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm) 
+![Downloads](https://img.shields.io/npm/dm/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-unocss-attributify-wechat)
 
 Starter template for [unplugin](https://github.com/unjs/unplugin)
 
@@ -48,6 +49,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 转换后
 ```html
 <button
+  bg="blue-400"
   class="bg-blue-400">
   button
 </button>
@@ -209,7 +211,13 @@ export interface Options {
 ```
 
 ```html
-<button class="text-sm text-white font-mono font-light p-y-2 p-x-4" my-attr="y-1 x-2 sm">
+<button 
+  text="sm white"
+  font="mono light"
+  p="y-2 x-4"
+  my-attr="y-1 x-2 sm"
+  class="text-sm text-white font-mono font-light p-y-2 p-x-4" 
+>
   Button
 </button>
 ```
@@ -225,7 +233,12 @@ presetAttributifyWechat({
 ```
 
 ```html
-<button class="my-attr-y-1 my-attr-x-2 my-attr-sm text-sm text-white font-mono font-light p-y-2 p-x-4">
+<button 
+  text="sm white"
+  font="mono light"
+  p="y-2 x-4"
+  my-attr="y-1 x-2 sm"
+  class="text-sm text-white font-mono font-light p-y-2 p-x-4 my-attr-y-1 my-attr-x-2 my-attr-sm ">
   Button
 </button>
 ```
@@ -255,14 +268,17 @@ presetAttributifyWechat({
 ```
 ### 注意事项
 * Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
-* **默认提取所有 valueless 属性，需要设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免被转换成 `class`，所以谨慎使用，谨慎使用，谨慎使用**
+* **默认提取所有 valueless 属性，可以设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免生成多余的 `class`
 * `ignoreNonValuedAttributes` 默认值 `['setup', 'scoped']`
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
 转换后，会将 `my-prop` `is-top` 提取到 `class`中
 ```html
-<button class="m-2 rounded text-teal-400 my-prop is-top" />
+<button 
+  m-2 rounded text-teal-400 my-prop is-top
+  class="m-2 rounded text-teal-400 my-prop is-top" 
+/>
 ```
 
 配置 `ignoreNonValuedAttributes` 忽略 `my-prop` `is-top`
@@ -278,18 +294,32 @@ presetAttributifyWechat({
 ```
 
 ```html
-<button class="m-2 rounded text-teal-400" my-prop is-top/>
+<button 
+  m-2 rounded text-teal-400 my-prop is-top
+  class="m-2 rounded text-teal-400" 
+/>
 ```
 
 ## Properties Conflicts
 如果属性模式的名称与元素或组件的属性冲突，可以针对属性模式添加 `prefix`   
 For example
 ```html
-<a text="red" un-text="blue">This conflicts with links' `text` prop</a>
+<a 
+  text="red" 
+  un-text="blue"
+>
+  This conflicts with links' `text` prop
+</a>
 ```
 转换后
 ```html
-<a text="red" class="text-blue">This conflicts with links' text prop</a>
+<a 
+  text="red" 
+  un-text="blue" 
+  class="text-blue"
+>
+  This conflicts with links' text prop
+</a>
 ```
 
 ```ts
