@@ -1,0 +1,48 @@
+<template>
+    <tm-app>
+        <tm-sheet :round="3" :shadow="2">
+            <tm-text :font-size="24" _class="font-weight-b" label="本组件，是所有组件的基石，拥有众多个性化属性，请查看文档了解更多属性。边线，背景、圆角、投影、渐变、内外边距轻松设置，还能兼容全端。"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="primary">
+            <tm-text  :font-size="24" _class="font-weight-b" label="背景色"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="pink" linear="right">
+            <tm-text :font-size="24" _class="font-weight-b" label="渐变背景，还有更多丰富属性见文档"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="orange" linear="bottom" liearDeep="accent">
+            <tm-text :font-size="24" _class="font-weight-b" label="不同的方向，还有更多丰富属性见文档"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="orange"  text :round="3">
+            <tm-text :font-size="24" _class="font-weight-b" label="文本浅色背景，圆角"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="orange" outlined  :round="3">
+            <tm-text :font-size="24" _class="font-weight-b" label="带边框,背景透明"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="green" :border="1" borderStyle="dashed" text :round="3">
+            <tm-text :font-size="24" _class="font-weight-b" label="虚线边框"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="blue-grey" :border="1" borderDirection="y" text>
+            <tm-text :font-size="24" _class="font-weight-b" label="上下边线"></tm-text>
+        </tm-sheet>
+        <tm-sheet color="blue-grey" outlined  :round="3">
+            <tm-sheet color="green" outlined  :round="3">
+                 <tm-sheet color="red" outlined  :round="3">
+                     <tm-sheet color="green" outlined text :round="3">
+                        <tm-text :font-size="24" _class="font-weight-b" label="可以无限嵌套"></tm-text>
+                    </tm-sheet>
+                </tm-sheet>
+            </tm-sheet>
+        </tm-sheet>
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+
+
+
+
+</script>

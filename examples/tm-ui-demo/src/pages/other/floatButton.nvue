@@ -1,0 +1,20 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="基础示例，更多属性和功能见文档"></tm-text>
+        </tm-sheet>
+		<tm-float-button position="tr" :btn="{ icon: 'tmicon-reply',linear:'bottom' }"></tm-float-button>
+		<tm-float-button position="bc" :btn="{ icon: 'tmicon-plus',linear:'bottom',color:'green' }"></tm-float-button>
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmFloatButton from "@/tmui/components/tm-float-button/tm-float-button.vue"
+
+
+
+</script>

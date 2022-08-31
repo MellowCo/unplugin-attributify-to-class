@@ -1,0 +1,129 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="基础示例,更多见文档"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-table @rowClick='onClick' :height="450" :width="638" :table-data="tableData" :header="header"></tm-table>
+        </tm-sheet>
+
+
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmTable from "@/tmui/components/tm-table/tm-table.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+const header = ref([
+    { title: "支付时间", bgColor: "green",width:120,key:'paytime' },
+	{ title: "未付订金", bgColor: "green",width:150,key:'unpayamount',sort:true },
+    { title: "备注", bgColor: "yellow",width:160,key:'desc' },
+    { title: "审核", bgColor: "green",cellColor:'red',width:100,key:'status' },
+	{ title: "已付订金", bgColor: "green",width:150,key:'amount' },
+])
+const tableData = ref([
+    {
+        data: {
+            unpayamount: 100,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    }, {
+        data: {
+            unpayamount: 25,
+            paytime: {
+				text:"获取",
+				type:'button'
+			},
+            amount: "100",
+            desc: {
+				text:"好吧",
+				color:'orange',
+				light:true
+			},
+            status: "通过",
+        }
+    },
+    {
+        data: {
+            unpayamount: 36,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: {
+				text:"嘿",
+				type:'button'
+			},
+            status: "通过",
+        }
+    }, {
+        color: 'green',
+        light: true,
+        data: {
+            unpayamount: 200,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    },
+    {
+        data: {
+            unpayamount: 80,
+            paytime: "2022/2/5",
+            amount: {
+				text:"100",
+			},
+            desc: "没有",
+            status: "通过",
+        }
+    }, {
+        data: {
+            unpayamount: {
+				text:180,
+				color:'green'
+			},
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    },
+    {
+        data: {
+            unpayamount: 20,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    }, {
+        data: {
+            unpayamount: 35,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    },
+    {
+        data: {
+            unpayamount: 40,
+            paytime: "2022/2/5",
+            amount: "100",
+            desc: "没有",
+            status: "通过",
+        }
+    }
+])
+
+function onClick(row,col){
+	console.log(row)
+	uni.$tm.u.toast("行:"+String(row)+",列"+String(col))
+}
+
+</script>

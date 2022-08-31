@@ -1,0 +1,40 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="更多指示点位置，属性等请看文档"></tm-text>
+        </tm-sheet>
+        <tm-carousel autoplay :margin="[0,16]" :round="3" :width="686" :height="300" :list="listimg"></tm-carousel>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="指示点对齐"></tm-text>
+        </tm-sheet>
+        <tm-carousel autoplay :margin="[0,16]" align="right" :round="3" :width="686" :height="300" :list="listimg"></tm-carousel>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="指示位置，包含视频播放"></tm-text>
+        </tm-sheet>
+        <tm-carousel autoplay :margin="[0,16]" dotPosition="right" vertical model="rect" :round="3" :width="686" :height="300" :list="listvedio"></tm-carousel>
+    </tm-app>
+</template> 
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmCarousel from "@/tmui/components/tm-carousel/tm-carousel.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+const listimg = [
+    "https://picsum.photos/200/300?id=43335",
+    "https://picsum.photos/200/300?id=433",
+    "https://picsum.photos/200/300?id=439",
+    "https://picsum.photos/200/300?id=459",
+]
+
+const listvedio = ["https://picsum.photos/200/300?id=43335", {
+    url: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    img: "https://picsum.photos/200/300?id=43335",
+    type: "video"
+},
+    "https://picsum.photos/200/300?id=433"
+]
+
+</script>

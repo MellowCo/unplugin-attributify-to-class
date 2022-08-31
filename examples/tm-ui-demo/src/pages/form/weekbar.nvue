@@ -1,0 +1,23 @@
+<template>
+	<tm-app>
+		<tm-sheet>
+			<tm-text :font-size="24" _class="font-weight-b" label="基础示例,更多见文档"></tm-text>
+		</tm-sheet>
+		<tm-weekbar></tm-weekbar>
+		<tm-weekbar :followTheme="false" activeColor="white" color="red"></tm-weekbar>
+		<tm-weekbar :followTheme="false" activeColor="black" color="yellow" linear="bottom"></tm-weekbar>
+	</tm-app>
+</template>
+<script lang="ts" setup>
+import { ref, computed } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmWeekbar from "@/tmui/components/tm-weekbar/tm-weekbar.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+const dateStr = ref('')
+const showdate = ref(false)
+
+
+</script>

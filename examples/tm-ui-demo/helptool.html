@@ -1,0 +1,92 @@
+<html>
+    <body>
+        <textarea placeholder="解析props参数文档" id="dominput" style="height:400px;width:40%"></textarea>
+        <button onclick="zh()">转换>></button>
+        <textarea id="dominputjg" style="height:400px;width:40%"></textarea>
+        <div></div>
+        <textarea placeholder="解析事件" id="domevent" style="height:400px;width:40%"></textarea>
+        <button onclick="zhevent()">转换>></button>
+        <textarea id="domeventjg" style="height:400px;width:40%"></textarea>
+    </body>
+</html>
+<script>
+function zh(){
+    const dic = {
+        "transprent":"是否透明",
+        "followtheme ":"是否跟随全局主题",
+        "fontsize ":"文字大小，单位rpx",
+        "margin":"外间距[x,y]x=左右，y=上下",
+        "padding":"内间距[x,y]x=左右，y=上下",
+        "shadow":"投影,0-25",
+        "width":"宽度，单位rpx",
+        "height":"高度，单位rpx",
+        "round":"圆角0-25，单位rpx",
+        "disabled":"是否禁用",
+    }
+    let dom = document.querySelector("#dominput");
+    let val = dom.value
+    try{
+        //正则props参数。块。
+        val = val.replace(/(?:^|\n|\r)\s*\/\*[\s\S]*?\*\/\s*(?:\r|\n|$)/g,'')
+        val = val.replace(/(?:^|\n|\r)\s*\/\/.*(?:\r|\n|$)/g,'')
+        val = val.replace(/\s/g,'')
+        val = val.trim()
+        val = val.split('},')
+        val = val.map((el,index)=>{
+            if(index<val.length-1){
+                el+='}'
+            }
+            return el;
+        })
+        console.log(val)
+        //取参数名称。
+        let csm = val.map(el=>{
+            let a = el.substring(0,el.indexOf(":"))
+            let s = a+":{type:";
+            let bStart = el.indexOf(s)+s.length
+            let bend = el.indexOf(",default:")
+            let b = el.substring(bStart,bend);
+            let cStart = el.indexOf(",default:")+9
+            let c = el.substring(cStart,el.length-1)
+            return {
+                name:a,
+                type:b,
+                default:c,
+                desc: dic[a.toLocaleLowerCase()]??""
+            }
+        })
+        let ps = ""
+        csm.forEach(element => {
+            ps+=`| ${element.name} | ${element.type} | ${element.default} | ${element.desc} |`+"\n"
+        });
+        document.querySelector("#dominputjg").value = ps;
+    }catch(e){
+        console.log(e)
+        //TODO handle the exception
+    }
+    
+}
+
+function zhevent(){
+        let val = document.querySelector("#domevent").value;
+        val = val.trim();
+        val = val.replace(/\s/g,'')
+        val = val.replace(/'/g,'"')
+        
+       let jg = eval('('+val+')');
+       console.log(jg)
+       let pl = jg.map(el=>{
+           return {
+               name:el,//事件名称
+               type:"",//参数
+               r:"",//返回数据
+               des:""//描述
+           }
+       })
+       let ps = ""
+       pl.forEach(element => {
+            ps+=`| ${element.name} | ${element.type} | ${element.r} | ${element.des} |`+"\n"
+        });
+        document.querySelector("#domeventjg").value = ps;
+    }
+</script>

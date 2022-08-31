@@ -1,0 +1,38 @@
+<template>
+    <tm-app>
+        <tm-sheet >
+            <tm-text :fontSize="24" _class="font-weight-b" label="基础属性,更多玩法请前往文档。"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-segtab :width="636" :list="list" defaultValue="2"></tm-segtab>
+        </tm-sheet>
+        <tm-sheet >
+            <tm-text :fontSize="24" _class="font-weight-b" label="改变按钮主题"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-segtab :width="636" color="primary"  activeColor="white" :list="list" defaultValue="2"></tm-segtab>
+        </tm-sheet>
+        <tm-sheet >
+            <tm-text :fontSize="24" _class="font-weight-b" label="背景"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-segtab :width="636" bgColor="primary" :followDark="false" color="white" activeColor="black" :list="list" defaultValue="2"></tm-segtab>
+        </tm-sheet>
+        <tm-sheet >
+            <tm-text :fontSize="24" _class="font-weight-b" label="渐变"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-segtab :width="636" bgColor="blue-grey" :followDark="false" linear="right" color="white" activeColor="black" :list="list" defaultValue="2"></tm-segtab>
+        </tm-sheet>
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref, getCurrentInstance } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmSegtab from "@/tmui/components/tm-segtab/tm-segtab.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+const list = ref([
+    {text:'苹果',id:'1'},
+    {text:'菠萝',id:'2'},
+    {text:'香蕉',id:'3'},
+])
+</script>

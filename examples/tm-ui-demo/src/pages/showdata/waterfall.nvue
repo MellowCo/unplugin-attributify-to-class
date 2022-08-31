@@ -1,0 +1,44 @@
+<template>
+	<tm-app>
+		<tm-sheet>
+			<tm-text :font-size="30" _class="font-weight-b" label="基础示例,更多见文档">
+			</tm-text>
+			<tm-divider></tm-divider>
+			<view class="flex flex-col flex-col-top-center">
+				<tm-waterfall :width="626">
+					<tm-waterfall-item :img="item.img" v-for="(item,index) in imglist">
+						<view class="py-24">
+							<tm-text :label="item.text"></tm-text>
+						</view>
+					</tm-waterfall-item>
+				</tm-waterfall>
+			</view>
+		</tm-sheet>
+
+
+	</tm-app>
+</template>
+<script lang="ts" setup>
+import {
+	ref
+} from "vue";
+import {
+	onShow,
+	onLoad
+} from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmWaterfall from "@/tmui/components/tm-waterfall/tm-waterfall.vue"
+import tmWaterfallItem from "@/tmui/components/tm-waterfall-item/tm-waterfall-item.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+const imglist = ref([])
+for (let i = 0; i < 21; i++) {
+	imglist.value.push({
+		img:`https://picsum.photos/${Math.ceil(200+Math.random()*100)}/${Math.ceil(200+Math.random()*100)}?id=${i}`,
+		text:"文字_"+i
+	})
+}
+
+
+</script>

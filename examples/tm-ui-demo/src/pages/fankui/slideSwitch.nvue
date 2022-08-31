@@ -1,0 +1,62 @@
+<template>
+	<tm-app>
+		<tm-sheet>
+		    <tm-text :fontSize="24" _class="font-weight-b" label="通过与cell组件组合可滑动列表"></tm-text>
+		</tm-sheet>
+		<tm-sheet :padding="[0,0]">
+			<tm-slide-switch @action-click="onclick" :width="686"  :height="84" :action="action">
+				<tm-cell :margin="[0,0]" title="向左滑动,并点击底部按钮"></tm-cell>
+			</tm-slide-switch>
+			<tm-slide-switch disabled :width="686"  :height="84" :action="action">
+				<tm-cell :margin="[0,0]" title="我被禁用了"></tm-cell>
+			</tm-slide-switch>
+			<tm-slide-switch v-for="item in 4" :key="item" :width="686"  :height="84" :action="action">
+				<tm-cell :margin="[0,0]" :title="'向左滑动试'+item"></tm-cell>
+			</tm-slide-switch>
+		</tm-sheet>
+
+		<tm-sheet>
+		    <tm-text :fontSize="24" _class="font-weight-b" label="利用插槽放置其它组件"></tm-text>
+		</tm-sheet>
+		<view class="mx-32 round-2 overflow">
+			<tm-slide-switch v-model:open-status="isopen"  :width="686"  :height="300" :round="0" :action="action">
+				<tm-card :margin="[0,0]" :shadow="0" status="2022-5-2" title="向左滑动试下" content="这是一个基础卡片示例，非常简单且实用。这是一个基础卡片示例，非常简单且实用。">
+				    <template v-slot:action>
+				        <view class="flex flex-1 flex-row flex-row-center-end">
+				            <tm-button :margin="[24,0]" label="确认" :font-size="24" :width="120" :height="50"></tm-button>
+				            <tm-button color="white" label="取消"  :font-size="24" :width="120" :height="50"></tm-button>
+				        </view>
+				    </template>
+				</tm-card>
+			</tm-slide-switch>
+		</view>
+	</tm-app>
+</template>
+
+<script lang="ts" setup>
+	import {ref} from "vue"
+	import tmSlideSwitch from "@/tmui/components/tm-slide-switch/tm-slide-switch.vue"
+	import tmCell from "@/tmui/components/tm-cell/tm-cell.vue"
+	import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+	import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+	import tmCard from "@/tmui/components/tm-card/tm-card.vue"
+	import tmButton from "@/tmui/components/tm-button/tm-button.vue"
+	import tmText from "@/tmui/components/tm-text/tm-text.vue"
+	import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+
+	const isopen = ref(true)
+	const action = ref([
+		{text:"操作",color:"black"},
+		{text:"删除按钮",color:"green",icon:'tmicon-delete'},
+	])
+	function onclick(item,index){
+		console.log(item,index)
+		uni.showToast({
+			title:`点击${item.text}`
+		})
+	}
+</script>
+
+<style>
+
+</style>

@@ -1,0 +1,39 @@
+<template>
+	<tm-app>
+		<tm-sheet>
+			<tm-text :font-size="24" _class="font-weight-b" label="基础示例,更多见文档"></tm-text>
+			<tm-divider></tm-divider>
+			<tm-time-view></tm-time-view>
+		</tm-sheet>
+		<tm-cell @click="showdate=true" title="请选择时间" :right-text="dateStr||'请选择'"></tm-cell>
+		<tm-time-picker default-value="2021-1-5" v-model:show="showdate" v-model:model-str="dateStr"></tm-time-picker>
+		<tm-sheet>
+			<tm-text :font-size="24" _class="font-weight-b" label="全部显示,更多请自行配置"></tm-text>
+			<tm-text :font-size="24" _class="font-weight-b" label="[2022-5-23]被禁用无法选择"></tm-text>
+			<tm-divider></tm-divider>
+			<tm-time-view default-value="2021-1-5" start="2016-2-5" :disabledDate="['2022-5-23']" :showDetail="{
+				year:true,
+				month:true,
+				day:true,
+				hour:true,
+				minute:true,
+				second:true
+			}"></tm-time-view>
+		</tm-sheet>
+	</tm-app>
+</template>
+<script lang="ts" setup>
+import { ref, computed } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmTimeView from "@/tmui/components/tm-time-view/tm-time-view.vue"
+import tmTimePicker from "@/tmui/components/tm-time-picker/tm-time-picker.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+import tmCell from "@/tmui/components/tm-cell/tm-cell.vue"
+const dateStr = ref('')
+const showdate = ref(false)
+
+
+</script>

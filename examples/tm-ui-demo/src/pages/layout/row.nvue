@@ -1,0 +1,105 @@
+<template>
+    <tm-app>
+        <tm-sheet color="primary" :round="3" :shadow="2">
+            <tm-text :font-size="24" label="特别注意：为了兼容全端，本row col采用flex布局，一定要严格按照文档属性使用，因为row col可能在布局中会大量嵌套，因此不采用计算宽，以及微信官方的百分比，浮动的布局，因此 带来了些不便。但却获得了最大的性能优势。"></tm-text>
+        </tm-sheet>
+
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="基础示例,布局组件不会自动断行"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-row :gutter="5">
+                <tm-col color="red" align="start" class="flex-1">
+                    <tm-text label="左对齐1"></tm-text>
+                </tm-col>
+                <tm-col color="green" class="flex-1">
+                    <tm-text label="flex2文本1"></tm-text>
+                </tm-col>
+                <tm-col color="blue" align="end" class="flex-1">
+                    <tm-text label="右对齐1"></tm-text>
+                </tm-col>
+            </tm-row>
+            <tm-row :margin="[0,5]" :gutter="5" color="blue-grey" >
+                <tm-col class="flex-1" color="green">
+                    <tm-text label="1"></tm-text>
+                </tm-col>
+                <tm-col class="flex-2" color="red">
+                    <tm-text label="2"></tm-text>
+                </tm-col>
+                <tm-col class="flex-3" color="blue">
+                    <tm-text label="3"></tm-text>
+                </tm-col>
+            </tm-row>
+            <tm-row :gutter="5" color="blue-grey" >
+                <tm-col class="flex-1" color="green">
+                    <tm-text label="1"></tm-text>
+                </tm-col>
+                <tm-col class="flex-11" color="blue">
+                    <tm-text label="11"></tm-text>
+                </tm-col>
+            </tm-row>
+            <tm-row :margin="[0,5]" :gutter="5" color="blue-grey" >
+                <tm-col class="flex-6" color="green">
+                    <tm-text label="6"></tm-text>
+                </tm-col>
+                <tm-col class="flex-3" color="red">
+                    <tm-text label="3"></tm-text>
+                </tm-col>
+                <tm-col class="flex-3" color="blue">
+                    <tm-text label="3"></tm-text>
+                </tm-col>
+            </tm-row>
+            <tm-row :gutter="5" color="blue-grey" >
+                <tm-col v-for="item in 5" :key="item" class="flex-1" color="green">
+                    <tm-text :label="item"></tm-text>
+                </tm-col>
+            </tm-row>
+            <tm-row :margin="[0,5]" :gutter="5">
+                <tm-col color="green" class="flex-1">
+                    <tm-text label="1"></tm-text>
+                </tm-col>
+                <tm-col color="green" class="flex-2">
+                    <tm-text label="2"></tm-text>
+                </tm-col>
+                <tm-col class="flex-7 " _class="flex-row flex">
+                    <tm-row class="flex-12 fulled" _class="fulled">
+                        <tm-col color="blue" v-for="item in 3" :key="item" class="flex-1">
+                            <tm-text :label="'嵌套' + item"></tm-text>
+                        </tm-col>
+                    </tm-row>
+                </tm-col>
+            </tm-row>
+        </tm-sheet>
+        
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="更改背景，间隙，固定宽高"></tm-text>
+            <tm-text :font-size="24" _class="font-weight-b" label="提供了宽和列数，就不要使用flex布局，因此不要提供flex-x属性。"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-row :width="630" :column="3" color="blue-grey" :gutter="5">
+                <tm-col color="green">
+                    <tm-text label="文本"></tm-text>
+                </tm-col>
+                <tm-col color="red">
+                    <tm-text label="文本"></tm-text>
+                </tm-col>
+                <tm-col color="blue">
+                    <tm-text label="文本"></tm-text>
+                </tm-col>
+            </tm-row>
+        </tm-sheet>
+
+
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmRow from "@/tmui/components/tm-row/tm-row.vue"
+import tmCol from "@/tmui/components/tm-col/tm-col.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+
+
+
+</script>

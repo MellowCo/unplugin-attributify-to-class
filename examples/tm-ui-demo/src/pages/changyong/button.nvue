@@ -1,0 +1,53 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="基本示例"></tm-text>
+            <tm-divider></tm-divider>
+            <view class="flex flex-row flex-wrap">
+                <tm-button :margin="[10, 10]" size="mini" :shadow="0" label="mini"></tm-button>
+                <tm-button :margin="[10, 10]" size="small" :shadow="0" label="small"></tm-button>
+                <tm-button :margin="[10, 10]" :shadow="0" text size="normal" label="normal"></tm-button>
+                <tm-button :margin="[10, 10]" :shadow="0" text :border="2" borderStyle="dashed" size="large" label="large">
+                </tm-button>
+                <tm-button :margin="[10, 10]" :shadow="0" outlined size="normal" label="normal"></tm-button>
+                <tm-button :margin="[10, 10]" transprent text :shadow="0" size="normal" label="透明背景"></tm-button>
+            </view>
+            <tm-button block label="block"></tm-button>
+        </tm-sheet>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="带图标"></tm-text>
+            <tm-divider></tm-divider>
+            <view class="flex flex-row flex-wrap">
+                <tm-button icon="tmicon-account" size="normal" label="按钮"></tm-button>
+                <tm-button color="red" icon="tmicon-account" :width="86" :round="10" :height="86" :fontSize="40"
+                    :margin="[10, 10]" :shadow="0" size="normal"></tm-button>
+                <tm-button color="green" icon="tmicon-account" :width="86" :round="10" :height="86" :fontSize="40"
+                    :margin="[10, 10]" :shadow="0" text size="normal"></tm-button>
+                <tm-button icon="tmicon-account" color="pink" :margin="[10, 10]" :shadow="0" text :border="2"
+                    borderStyle="dashed" size="normal" label="按钮"></tm-button>
+            </view>
+        </tm-sheet>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="渐变样式,更多属性见文档"></tm-text>
+			<tm-divider></tm-divider>
+            <tm-button loading linear="right" block label="light 加载中"></tm-button>
+            <tm-button  linear="right" linearDeep="dark" block label="dark 被禁用"></tm-button>
+            <tm-button disabled linear="right" linearDeep="dark" block label="dark 被禁用"></tm-button>
+            <tm-button linear="right" linearDeep="accent" block label="accent"></tm-button>
+            <tm-button color="pink" linear="right" linearDeep="accent" block label="accent"></tm-button>
+            <tm-button color="orange" linear="right" linearDeep="accent" block label="accent top"></tm-button>
+        </tm-sheet>
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "../../tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmButton from "../../tmui/components/tm-button/tm-button.vue"
+import tmDivider from "../../tmui/components/tm-divider/tm-divider.vue"
+
+
+
+</script>

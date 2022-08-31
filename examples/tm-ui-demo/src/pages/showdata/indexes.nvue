@@ -1,0 +1,33 @@
+<template>
+	<tm-app>
+		<tm-sheet>
+			<tm-text :font-size="30" _class="font-weight-b" label="基础示例,更多见文档"></tm-text>
+		</tm-sheet>
+
+		<tm-indexes>
+			<tm-indexes-item :title="index%10==0?index:''" v-for="(item,index) in 60" :key="index">
+				<tm-text :label="'想要什么的.-'+index"></tm-text>
+			</tm-indexes-item>
+		</tm-indexes>
+
+	</tm-app>
+</template>
+<script lang="ts" setup>
+	import {
+		ref
+	} from "vue";
+	import {
+		onShow,
+		onLoad
+	} from "@dcloudio/uni-app";
+	import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+	import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+	import tmText from "@/tmui/components/tm-text/tm-text.vue"
+	import tmIndexesItem from "@/tmui/components/tm-indexes-item/tm-indexes-item.vue"
+	import tmIndexes from "@/tmui/components/tm-indexes/tm-indexes.vue"
+	import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+	const imglist = ref([])
+	for (let i = 0; i < 1900; i++) {
+		imglist.value.push('https://picsum.photos/636/150?id=' + i)
+	}
+</script>

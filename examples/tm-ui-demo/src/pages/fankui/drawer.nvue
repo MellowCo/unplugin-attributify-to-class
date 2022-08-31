@@ -1,0 +1,33 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="下面是基础演示属性,更多玩法请前往文档。"></tm-text>
+            <tm-divider></tm-divider>
+            <view class="flex flex-row flex-wrap ">
+                <tm-button :margin="[12, 12]" @click="pos = 'bottom'; showWin = true" color="white" :width="120"
+                    :height="56" :font-size="24" label="底部"></tm-button>
+                <tm-button :margin="[12, 12]" @click="pos = 'top'; showWin = true" color="red" :width="120" :height="56"
+                    :font-size="24" label="顶部"></tm-button>
+                <tm-button :margin="[12, 12]" @click="pos = 'left'; showWin = true" color="orange" :width="120"
+                    :height="56" :font-size="24" label="左边"></tm-button>
+                <tm-button :margin="[12, 12]" @click="pos = 'right'; showWin = true" color="pink" :width="120"
+                    :height="56" :font-size="24" label="右边"></tm-button>
+                <tm-button :margin="[12, 12]" @click="pos = 'center'; showWin = true" color="green" :width="120"
+                    :height="56" :font-size="24" label="居中"></tm-button>
+            </view>
+        </tm-sheet>
+        <tm-drawer :placement="pos" v-model:show="showWin"></tm-drawer>
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref, getCurrentInstance } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmButton from "@/tmui/components/tm-button/tm-button.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+import tmDrawer from "@/tmui/components/tm-drawer/tm-drawer.vue"
+const showWin = ref(false)
+const pos = ref("bottom")
+</script>

@@ -1,0 +1,43 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="基础示例"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-descriptions :data="list" ></tm-descriptions>
+        </tm-sheet>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="配置颜色和字体大小，以及标题，插槽"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-descriptions transprent :round="3" text title="时间工具标题">
+                <tm-descriptions-item  :font-size="24" v-for="(item,index) in list" :key="index" :label="item.label" :value="item.value"></tm-descriptions-item>
+                <tm-descriptions-item :font-size="24" color="red" label="开发工具" value="vscode">
+                    <tm-sheet color="red" text :border="1" :margin="[12,0]" :padding="[12,4]" :round="2">
+                        <tm-text :font-size="24" label="插槽配置"></tm-text>
+                    </tm-sheet>
+                </tm-descriptions-item>
+            </tm-descriptions>
+        </tm-sheet>
+
+        
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmDescriptions from "@/tmui/components/tm-descriptions/tm-descriptions.vue"
+import tmDescriptionsItem from "@/tmui/components/tm-descriptions-item/tm-descriptions-item.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+
+const list = [
+    {label:'同步时间',value:'2022/5/12'},
+    {label:'同步时间',value:'2022/5/12'},
+    {label:'同步时间',value:'2022/5/12'},
+    {label:'同步时间',value:'2022/5/12'},
+]
+
+
+
+</script>

@@ -1,0 +1,70 @@
+<template>
+    <tm-app>
+        <tm-sheet>
+            <tm-tabs showTabsLineAni :item-width="110" swiper :width="636" :height="500" default-name="2">
+                <tm-tabs-pane :dot="item==3"   v-for="(item,index) in 20" :key="index" :name="item" :title="'标题'">
+                    <tm-sheet :margin="[0, 0]">
+						<tm-text :font-size="30" _class="font-weight-b"
+						color='red'
+						:label="item + ';本组件可以开启swiper属性，你现在可以尝试左右滑动。开启左右滑动，页面最好禁用滚动，以防与页面事件冲突。(当然是兼容了WEB pc端)'"></tm-text>
+                        <tm-text :font-size="30" _class="font-weight-b" 
+						:label="'也可以关闭swiper属性。如果开启，所有的tabs内容默认都显示的，因此请注意优化界面的流畅度。'"></tm-text>
+                        <tm-divider></tm-divider>
+                    </tm-sheet>
+                </tm-tabs-pane>
+            </tm-tabs>
+        </tm-sheet>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="下面的示例为单独使用"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-tabs :list="tabsTitle" :width="636" :height="300" default-name="1">
+            </tm-tabs>
+        </tm-sheet>
+        <tm-sheet>
+            <tm-text :font-size="24" _class="font-weight-b" label="其它一些属性特性"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-tabs :list="tabsTitle" :border="1" :width="636" :height="300" default-name="1" :round="2" color="grey" text
+                activeFontColor="primary" unSelectedColor="grey-darken-2">
+            </tm-tabs>
+            <tm-divider></tm-divider>
+            <tm-text :font-size="24" _class="font-weight-b" label="渐变背景"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-tabs :list="tabsTitle" :width="636" :height="300" default-name="1" :round="2" color="red"
+                activeFontColor="yellow" linear="left">
+            </tm-tabs>
+            <tm-divider></tm-divider>
+            <tm-text :font-size="24" _class="font-weight-b" label="卡片式"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-tabs @change="tabschange" :list="tabsTitle" align="center" :width="636" :height="300" default-name="1" :round="2"
+                color="black" itemModel="card"  activeColor="yellow" activeFontColor="black">
+            </tm-tabs>
+            <tm-divider></tm-divider>
+            <tm-text :font-size="24" _class="font-weight-b" label="线式"></tm-text>
+            <tm-divider></tm-divider>
+            <tm-tabs :list="tabsTitle" align="center" :width="636" :height="300" default-name="1" 
+                itemModel="line" activeColor="primary" activeFontColor="primary">
+            </tm-tabs>
+        </tm-sheet>
+
+    </tm-app>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onShow, onLoad } from "@dcloudio/uni-app";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue"
+import tmText from "@/tmui/components/tm-text/tm-text.vue"
+import tmTabs from "@/tmui/components/tm-tabs/tm-tabs.vue"
+import tmDivider from "@/tmui/components/tm-divider/tm-divider.vue"
+import tmTabsPane from "@/tmui/components/tm-tabs-pane/tm-tabs-pane.vue"
+const tabsTitle = ref([
+    { key: "1", title: "选项1", icon: "tmicon-ios-leaf" },
+    { key: "2", title: "选项2", icon: "tmicon-ios-umbrella" },
+    { key: "3", title: "选项3",dot:true,dotColor:'yellow', icon: "tmicon-ios-rocket" },
+    { key: "4", title: "选项4", icon: "tmicon-ios-partly-sunny" },
+])
+
+function tabschange(key:string|number){
+    console.log(key)
+}
+</script>
