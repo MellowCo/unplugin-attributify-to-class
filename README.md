@@ -180,6 +180,12 @@ export interface Options {
     * @default [/\.vue$/,  /\.vue\?vue/]
     */
   include?: FilterPattern
+
+  /**
+    * 为生成的class选择器添加前缀
+    * @default ''
+    */
+  classPrefix?: string
 }
 ```
 
@@ -368,3 +374,74 @@ presetAttributifyWechat({
   include: [/\.vue$/, /\.vue\?vue/]
 })
 ```
+
+---
+## classPrefix
+> 为生成的class选择器添加前缀
+
+```html
+<button bg-green bg-red text="center left"></button>
+
+<button 
+  bg-green bg-red 
+  text="center left" 
+  class="li-bg-green li-bg-red li-text-center li-text-left"
+></button>
+```
+* 设置 `classPrefix`，生成的class选择器会加上前缀
+```ts
+const classPrefixExtract = extractorAttributify({
+  nonValuedAttribute: true,
+  classPrefix: 'li-',
+})
+```
+
+```html
+<button 
+  bg-green bg-red 
+  text="center left" 
+  class="li-bg-green li-bg-red li-text-center li-text-left"
+></button>
+```
+
+## 原子化 css 冲突问题
+> 例如 [tmui](https://tmui.design/)，自身有一套[原子化 css](https://tmui.design/doc/CSSTool/css.html)，导致与 unocss 冲突
+
+![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311130610.png)
+
+
+1. unocss.config.ts `unocss` 设置 `prefix`
+
+```ts
+export default {
+  presets: [
+  // https://github.com/MellowCo/unocss-preset-weapp
+    presetWeapp({
+      prefix: 'li-',
+    }),
+  ]
+}
+```
+
+2. vite.config.ts `presetAttributifyWechat` 设置 `prefix` 
+```ts
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+    presetAttributifyWechat({
+      nonValuedAttribute: true,
+      classPrefix: 'li-',
+    }),
+  ],
+})
+```
+
+> 这样冲突问题就解决了
+```html
+<view bg="#333" p="x-6 y-10" w100 h200 class="li-bg-red">
+  this is a unocss
+</view>
+```
+
+![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311149877.png)
