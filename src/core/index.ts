@@ -20,7 +20,7 @@ function isValidSelector(selector = ''): selector is string {
 }
 
 export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
-export const defaultIgnoreNonValuedAttributes = []
+export const defaultIgnoreNonValuedAttributes = ['class']
 
 interface TransformOption {
   /**
@@ -76,7 +76,11 @@ export const extractorAttributify = (options?: Options): any => {
             const _name = prefixedOnly ? name.replace(prefix, '') : name
 
             if (!content) {
-            // 处理 transform pt2 rounded-sm 单值属性
+              // 处理 class="" ，生成 2 个 class 属性的问题
+              if (name === 'class')
+                option.staticClass = sourceStr
+
+              // 处理 transform pt2 rounded-sm 单值属性
               if (isValidSelector(name) && nonValuedAttribute !== false) {
               // 不是忽略的非值属性
                 if (!ignoreNonValuedAttributes.includes(name)) {
