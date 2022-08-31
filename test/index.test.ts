@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
-import { escapeStr, fixture1, fixture2, fuiButton, scriptStr } from './assets'
+import { escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr } from './assets'
 
 describe('attributify', () => {
   const attributesExtract = extractorAttributify({
@@ -84,5 +84,6 @@ describe('attributify', () => {
 
   test('scriptStr', () => {
     expect(nonValueExtract(scriptStr)).toMatchSnapshot()
+    expect(nonValueExtract(noTemplateStr)).toMatchSnapshot()
   })
 })

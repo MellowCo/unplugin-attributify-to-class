@@ -1,67 +1,70 @@
 export const fixture1 = `
-<view >
-  <button
-    h-80 text-center flex flex-col align-center select-none all:transition-400
-    bg="blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400"
-    li-bg="blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500"
-    class="text-red font-bold"
-    :loading="loading"
-    my-class="text-red font-bold"
-    title="this is title"
-    my-prop
-    non-value
-    :class="{ 'text-blue': true, 'text-green': false }"
-    :class="[ 'text-blue', 'text-green' ]"
-    :class="[ str === 'blue' ? 'text-blue' : 'text-red' ]"
-  >
-    Button
-  </button>
+<template>
+  <view >
+    <button
+      h-80 text-center flex flex-col align-center select-none all:transition-400
+      bg="blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400"
+      li-bg="blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500"
+      un-bg="red-500 hover:red-500 dark:!red-500 dark:hover:red-500"
+      class="text-red font-bold"
+      :loading="loading"
+      my-class="text-red font-bold"
+      title="this is title"
+      my-prop
+      non-value
+      :class="{ 'text-blue': true, 'text-green': false }"
+      :class="[ 'text-blue', 'text-green' ]"
+      :class="[ str === 'blue' ? 'text-blue' : 'text-red' ]"
+    >
+      Button
+    </button>
 
-  <button 
-    text="sm white"
-    font="mono light"
-    p="y-2 x-4"
-    my-attr="y-1 x-2 sm"
-  >
-    Button
-  </button>
+    <button 
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+      my-attr="y-1 x-2 sm"
+    >
+      Button
+    </button>
 
-  <button 
-    text="sm white"
-    font="mono light"
-    p="y-2 x-4"
-  >
-    Button
-  </button>
+    <button 
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+    >
+      Button
+    </button>
 
-  <button border="~ red">
-    Button
-  </button>
+    <button border="~ red">
+      Button
+    </button>
 
-  <button flex="~ col wrap">
-    Button
-  </button>
+    <button flex="~ col wrap">
+      Button
+    </button>
 
-  <a text="red" un-text="blue">This conflicts with links' text prop</a>
+    <a text="red" un-text="blue">This conflicts with links' text prop</a>
 
-  <button 
-    bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
-    text="sm white"
-    font="mono light"
-    p="y-2 x-4"
-    border="2 rounded blue-200"
-  >
-    Button
-  </button>
+    <button 
+      bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+      text="sm white"
+      font="mono light"
+      p="y-2 x-4"
+      border="2 rounded blue-200"
+    >
+      Button
+    </button>
 
-  <button 
-    bg="#333 grey-200 [#444]/40 red/50"
-  >
-    Button
-  </button>
+    <button 
+      bg="#333 grey-200 [#444]/40 red/50"
+    >
+      Button
+    </button>
 
-  <image mode="widthFix"></image> 
-</view>
+    <image mode="widthFix"></image> 
+  </view>
+</template>  
 `
 
 export const fixture2 = `
@@ -111,7 +114,7 @@ onHide(() => {
 })
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>
 `
 
 export const fuiButton = `
@@ -133,8 +136,16 @@ const CheckboxGropup = ref<InstanceType<typeof tmCheckboxGroup> | null>(null)
 `
 
 export const escapeStr = `
-<button 
-bg="#333 grey-200 [#444]/40 red/50"
->
-Button
-</button>`
+<template>
+  <button 
+  bg="#333 grey-200 [#444]/40 red/50">  
+    Button
+  </button>
+</template>`
+
+export const noTemplateStr = `
+<script lang="ts" setup>
+const CheckboxGropup = ref<InstanceType<typeof tmCheckboxGroup> | null>(null)
+const a = 1
+</script>
+`
