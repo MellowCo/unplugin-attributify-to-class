@@ -25,7 +25,7 @@ specifiers:
   unocss: ^0.45.13
   unocss-preset-weapp: ^0.1.12
   unplugin-transform-we-class: ^0.1.18
-  unplugin-unocss-attributify-wechat: ^0.1.12
+  unplugin-unocss-attributify-wechat: link:../../
   unplugin-vue-components: ^0.18.5
   vite: ^2.9.9
   vue: ^3.2.36
@@ -60,7 +60,7 @@ devDependencies:
   unocss: 0.45.13_vite@2.9.15
   unocss-preset-weapp: 0.1.12_vite@2.9.15
   unplugin-transform-we-class: 0.1.18_vite@2.9.15
-  unplugin-unocss-attributify-wechat: 0.1.12_vite@2.9.15
+  unplugin-unocss-attributify-wechat: link:../..
   unplugin-vue-components: 0.18.5_vite@2.9.15+vue@3.2.38
   vite: 2.9.15
 
@@ -2957,19 +2957,6 @@ packages:
       '@meoc/utils': 0.1.8
       '@rollup/pluginutils': 4.2.1
       unplugin: 0.9.5_vite@2.9.15
-    transitivePeerDependencies:
-      - esbuild
-      - rollup
-      - vite
-      - webpack
-    dev: true
-
-  /unplugin-unocss-attributify-wechat/0.1.12_vite@2.9.15:
-    resolution: {integrity: sha512-nYdErnpMemrG9l8L/BQac/NPy76XmfSWyUGlVixlh9Rx8xc0+IX1vmf1cr/U/OI9Caoq5yMoPEK5VtSGPyQOVA==}
-    dependencies:
-      '@rollup/pluginutils': 4.2.1
-      unplugin: 0.9.5_vite@2.9.15
-      unplugin-transform-we-class: 0.1.18_vite@2.9.15
     transitivePeerDependencies:
       - esbuild
       - rollup

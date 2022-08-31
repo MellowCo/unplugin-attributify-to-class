@@ -3,7 +3,7 @@ export default {
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp({
-      prefix: 'li-'
+      prefix: 'li-',
     }),
   ],
   shortcuts: [
