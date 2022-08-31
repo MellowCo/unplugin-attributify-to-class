@@ -1,5 +1,14 @@
 // Vitest Snapshot v1
 
+exports[`attributify > IllegalStr 1`] = `
+"
+<template>
+  <input bg-green bg-red @input=\\"inputVal\\"   class=\\"bg-green bg-red\\"/>
+  <input bg-green bg-red @input=\\"inputVal\\"   class=\\"bg-green bg-red\\">1111</>
+</template>
+"
+`;
+
 exports[`attributify > attributesExtract 1`] = `
 "
 <template>
@@ -120,6 +129,14 @@ onHide(() => {
 </script>
 
 <style lang=\\"scss\\" scoped></style>
+"
+`;
+
+exports[`attributify > classPrefixExtract 1`] = `
+"
+<template>
+  <view bg-green bg-red text=\\"center left\\" class=\\"li-bg-green li-bg-red li-text-center li-text-left\\"></view>
+</template>
 "
 `;
 

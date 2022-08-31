@@ -124,7 +124,7 @@ export const fuiButton = `
 </template>
 `
 
-// 错误: const CheckboxGropup = ref<InstanceType<typeof tmCheckboxGroup class=\\"tmCheckboxGroup\\"> | null>(null)
+// 错误: const CheckboxGropup = ref<InstanceType<typeof tmCheckboxGroup class="tmCheckboxGroup"> | null>(null)
 export const scriptStr = `
 <template>
   <view bg="#333" p="x-6 y-10" w100 h200>this is a unocss</view>
@@ -151,11 +151,25 @@ const a = 1
 `
 
 // 错误：[plugin:vite:vue] Duplicate attribute.
-// <view class=\\"\\" class=\\"class\\">
+// <view class="" class="class">
 export const emptyClassStr = `
 <template>
   <view class="" bg-green bg="blue red">
     <tm-skeleton-line :height="props.height*4"></tm-skeleton-line>
   </view>
+</template>
+`
+// 错误：[plugin:vite:vue] Illegal '/' in tags
+// <input bg-green bg-red @input="inputVal"  / class="bg-green bg-red">
+export const IllegalStr = `
+<template>
+  <input bg-green bg-red @input="inputVal"  />
+  <input bg-green bg-red @input="inputVal"  >1111</>
+</template>
+`
+
+export const classPrefixStr = `
+<template>
+  <view bg-green bg-red text="center left"></view>
 </template>
 `
