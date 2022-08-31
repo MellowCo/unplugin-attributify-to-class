@@ -73,4 +73,10 @@ export interface Options {
     * @default [/\.vue$/,  /\.vue\?vue/]
     */
   include?: FilterPattern
+
+  /**
+    * 为生成的class选择器添加前缀
+    * @default ''
+    */
+  classPrefix?: string
 }

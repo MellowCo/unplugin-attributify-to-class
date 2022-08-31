@@ -52,6 +52,7 @@ export const extractorAttributify = (options?: Options): any => {
   const prefixedOnly = options?.prefixedOnly ?? false
   const transformEscape = options?.transformEscape ?? true
   const transformRules = options?.transformRules ?? defaultRules
+  const classPrefix = options?.classPrefix ?? ''
 
   return function extract(code: string) {
     const result: TransformOption[] = []
@@ -85,7 +86,7 @@ export const extractorAttributify = (options?: Options): any => {
               // 不是忽略的非值属性
                 if (!ignoreNonValuedAttributes.includes(name)) {
                 // option.tempStr = option.tempStr.replace(name, '')
-                  option.selectors.push(transformEscape ? transformSelector(name, transformRules) : name)
+                  option.selectors.push(transformEscape ? transformSelector(`${classPrefix}${name}`, transformRules) : `${classPrefix}${name}`)
                 }
               }
               return
@@ -115,7 +116,7 @@ export const extractorAttributify = (options?: Options): any => {
               const attributifyToClass = content
                 .split(splitterRE)
                 .filter(Boolean)
-                .map(v => v === '~' ? _name : `${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
+                .map(v => v === '~' ? `${classPrefix}${_name}` : `${classPrefix}${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
 
               // option.tempStr = option.tempStr.replace(sourceStr, '')
               option.selectors.push(attributifyToClass)
@@ -135,7 +136,9 @@ export const extractorAttributify = (options?: Options): any => {
         }
         else {
           const className = ` class="${selectors.join(' ')}"`
-          code = code.replace(elementStr, spliceStr(tempStr, -1, className))
+          const insertIndex = elementStr.endsWith('/>') ? -2 : -1
+
+          code = code.replace(elementStr, spliceStr(tempStr, insertIndex, className))
         }
       })
     }
