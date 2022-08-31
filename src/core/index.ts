@@ -20,7 +20,7 @@ function isValidSelector(selector = ''): selector is string {
 }
 
 export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
-export const defaultIgnoreNonValuedAttributes = ['setup', 'scoped']
+export const defaultIgnoreNonValuedAttributes = []
 
 interface TransformOption {
   /**

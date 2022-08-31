@@ -140,7 +140,7 @@ export interface Options {
 
   /**
    * 忽略的非值属性列表
-   * @default ['setup', 'scoped']
+   * @default []
    */
   ignoreNonValuedAttributes?: string[]
 
