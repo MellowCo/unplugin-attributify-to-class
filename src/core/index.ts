@@ -8,6 +8,7 @@ const strippedPrefixes = [
   'v-on',
 ]
 
+const templateRe = /<template>([\s\S]*)<\/template>/g
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:@.!%-]+)(?:=(["'])([^\2]*?)\2)?/g
@@ -55,78 +56,85 @@ export const extractorAttributify = (options?: Options): any => {
   return function extract(code: string) {
     const result: TransformOption[] = []
 
-    Array.from(code.matchAll(elementRE))
-      .forEach(([elementStr, valuedAttributeStr]) => {
-        const valuedAttributes = Array.from((valuedAttributeStr || '').matchAll(valuedAttributeRE))
+    // 只匹配 template 里的代码
+    const templateMatchs = Array.from(code.matchAll(templateRe))
 
-        const option: TransformOption = {
-          elementStr,
-          tempStr: elementStr,
-          staticClass: '',
-          selectors: [],
-        }
-        valuedAttributes.forEach(([sourceStr, name, _, content]) => {
-          const _name = prefixedOnly ? name.replace(prefix, '') : name
+    if (templateMatchs.length) {
+      const templateCode = templateMatchs[0][1]
 
-          if (!content) {
+      Array.from(templateCode.matchAll(elementRE))
+        .forEach(([elementStr, valuedAttributeStr]) => {
+          const valuedAttributes = Array.from((valuedAttributeStr || '').matchAll(valuedAttributeRE))
+
+          const option: TransformOption = {
+            elementStr,
+            tempStr: elementStr,
+            staticClass: '',
+            selectors: [],
+          }
+          valuedAttributes.forEach(([sourceStr, name, _, content]) => {
+            const _name = prefixedOnly ? name.replace(prefix, '') : name
+
+            if (!content) {
             // 处理 transform pt2 rounded-sm 单值属性
-            if (isValidSelector(name) && nonValuedAttribute !== false) {
+              if (isValidSelector(name) && nonValuedAttribute !== false) {
               // 不是忽略的非值属性
-              if (!ignoreNonValuedAttributes.includes(name)) {
+                if (!ignoreNonValuedAttributes.includes(name)) {
                 // option.tempStr = option.tempStr.replace(name, '')
-                option.selectors.push(transformEscape ? transformSelector(name, transformRules) : name)
+                  option.selectors.push(transformEscape ? transformSelector(name, transformRules) : name)
+                }
+              }
+              return
+            }
+
+            for (const prefix of strippedPrefixes) {
+            // 如果是 : v-bind @ v-on 开头的属性，则不处理
+              if (name.startsWith(prefix)) {
+                name = name.slice(prefix.length)
+                return
               }
             }
-            return
-          }
 
-          for (const prefix of strippedPrefixes) {
-            // 如果是 : v-bind @ v-on 开头的属性，则不处理
-            if (name.startsWith(prefix)) {
-              name = name.slice(prefix.length)
+            // 是否生成该属性
+            if (!attributes.includes(_name))
               return
+
+            if (['class', 'className'].includes(name)) {
+              option.staticClass = sourceStr
             }
-          }
 
-          // 是否生成该属性
-          if (!attributes.includes(_name))
-            return
+            else {
+              if (prefixedOnly && !name.startsWith(prefix))
+                return
 
-          if (['class', 'className'].includes(name)) {
-            option.staticClass = sourceStr
-          }
+              // 处理 bg="blue-400"
+              const attributifyToClass = content
+                .split(splitterRE)
+                .filter(Boolean)
+                .map(v => v === '~' ? _name : `${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
 
-          else {
-            if (prefixedOnly && !name.startsWith(prefix))
-              return
+              // option.tempStr = option.tempStr.replace(sourceStr, '')
+              option.selectors.push(attributifyToClass)
+            }
+          })
 
-            // 处理 bg="blue-400"
-            const attributifyToClass = content
-              .split(splitterRE)
-              .filter(Boolean)
-              .map(v => v === '~' ? _name : `${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
-
-            // option.tempStr = option.tempStr.replace(sourceStr, '')
-            option.selectors.push(attributifyToClass)
-          }
+          result.push(option)
         })
 
-        result.push(option)
+      result.forEach(({ elementStr, tempStr, staticClass, selectors }) => {
+        if (selectors.length === 0)
+          return
+
+        if (staticClass) {
+          tempStr = tempStr.replace(staticClass, spliceStr(staticClass, -1, ` ${selectors.join(' ')}`))
+          code = code.replace(elementStr, tempStr)
+        }
+        else {
+          const className = ` class="${selectors.join(' ')}"`
+          code = code.replace(elementStr, spliceStr(tempStr, -1, className))
+        }
       })
-
-    result.forEach(({ elementStr, tempStr, staticClass, selectors }) => {
-      if (selectors.length === 0)
-        return
-
-      if (staticClass) {
-        tempStr = tempStr.replace(staticClass, spliceStr(staticClass, -1, ` ${selectors.join(' ')}`))
-        code = code.replace(elementStr, tempStr)
-      }
-      else {
-        const className = ` class="${selectors.join(' ')}"`
-        code = code.replace(elementStr, spliceStr(tempStr, -1, className))
-      }
-    })
+    }
 
     return code
   }
