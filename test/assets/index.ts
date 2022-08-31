@@ -149,3 +149,13 @@ const CheckboxGropup = ref<InstanceType<typeof tmCheckboxGroup> | null>(null)
 const a = 1
 </script>
 `
+
+// 错误：[plugin:vite:vue] Duplicate attribute.
+// <view class=\\"\\" class=\\"class\\">
+export const emptyClassStr = `
+<template>
+  <view class="" bg-green bg="blue red">
+    <tm-skeleton-line :height="props.height*4"></tm-skeleton-line>
+  </view>
+</template>
+`

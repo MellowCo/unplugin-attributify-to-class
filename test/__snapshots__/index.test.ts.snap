@@ -132,6 +132,16 @@ exports[`attributify > completeExtract 1`] = `
 "
 `;
 
+exports[`attributify > emptyClassStr 1`] = `
+"
+<template>
+  <view class=\\" bg-green bg-blue bg-red\\" bg-green bg=\\"blue red\\">
+    <tm-skeleton-line :height=\\"props.height*4\\"></tm-skeleton-line>
+  </view>
+</template>
+"
+`;
+
 exports[`attributify > escapeStr 1`] = `
 "
 <template>
