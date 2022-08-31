@@ -7,7 +7,7 @@ export default createUnplugin<Options>((options) => {
   const extractor = extractorAttributify(options)
 
   const filter = createFilter(
-    options.include || [/\.[jt]sx?$/, /\.vue$/, /\.vue\?vue/],
+    options.include || [/\.vue$/, /\.vue\?vue/],
     options.exclude || [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/],
   )
 

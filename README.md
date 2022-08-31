@@ -177,7 +177,7 @@ export interface Options {
 
   /**
     * 需要转换的目标
-    * @default [/\.[jt]sx?$/, /\.vue$/,  /\.vue\?vue/]
+    * @default [/\.vue$/,  /\.vue\?vue/]
     */
   include?: FilterPattern
 }
