@@ -275,7 +275,7 @@ presetAttributifyWechat({
 ### 注意事项
 * Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
 * **默认提取所有 valueless 属性，可以设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免生成多余的 `class`
-* `ignoreNonValuedAttributes` 默认值 `['setup', 'scoped']`
+* `ignoreNonValuedAttributes` 默认值 `['class']`
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
 ```
@@ -410,8 +410,8 @@ const classPrefixExtract = extractorAttributify({
 ![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311130610.png)
 
 
-1. unocss.config.ts `unocss` 设置 `prefix`
-
+1. unocss.config.ts
+>  `unocss` 设置 `prefix`
 ```ts
 export default {
   presets: [
@@ -423,7 +423,8 @@ export default {
 }
 ```
 
-2. vite.config.ts `presetAttributifyWechat` 设置 `prefix` 
+2. vite.config.ts 
+> `presetAttributifyWechat` 设置 `classPrefix` 
 ```ts
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -445,3 +446,6 @@ export default defineConfig({
 ```
 
 ![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311149877.png)
+
+
+[tm-ui-demo](https://github.com/MellowCo/unplugin-unocss-attributify-wechat/tree/master/examples/tm-ui-demo)
