@@ -70,11 +70,11 @@ import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyW
 
 export default defineConfig({
   plugins: [
-    // https://github.com/antfu/unocss
-    Unocss(),
-
     // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
     presetAttributifyWechat(options),
+  
+    // https://github.com/antfu/unocss
+    Unocss(),
 
     // https://github.com/MellowCo/unplugin-transform-we-class
     transformWeClass(),
