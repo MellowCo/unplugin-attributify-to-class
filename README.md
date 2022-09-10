@@ -59,7 +59,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 ## 安装
 ```shell
 npm i -D unplugin-unocss-attributify-wechat
-``` 
+```
 
 vite
 ```ts
@@ -71,7 +71,7 @@ import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyW
 export default defineConfig({
   plugins: [
     // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-    presetAttributifyWechat(options),
+    presetAttributifyWechat(),
   
     // https://github.com/antfu/unocss
     Unocss(),
@@ -96,7 +96,7 @@ module.exports = {
       UnoCSS(),
 
       // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-      presetAttributifyWechat(options),
+      presetAttributifyWechat(),
 
       // https://github.com/MellowCo/unplugin-transform-we-class
       transformWeClass(),
@@ -274,7 +274,7 @@ presetAttributifyWechat({
 ```
 ### 注意事项
 * Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
-* **默认提取所有 valueless 属性，可以设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免生成多余的 `class`
+* 默认提取所有 valueless 属性，可以设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免生成多余的 `class`
 * `ignoreNonValuedAttributes` 默认值 `['class']`
 ```html
 <button m-2 rounded text-teal-400 my-prop is-top/>
