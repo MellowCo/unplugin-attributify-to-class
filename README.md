@@ -308,7 +308,6 @@ presetAttributifyWechat({
 
 ## Properties Conflicts
 如果属性模式的名称与元素或组件的属性冲突，可以针对属性模式添加 `prefix`   
-For example
 ```html
 <a 
   text="red" 
@@ -317,7 +316,17 @@ For example
   This conflicts with links' `text` prop
 </a>
 ```
-转换后
+
+设置 前缀匹配
+```ts
+presetAttributifyWechat({
+  // 前缀属性默认值`un-`
+  prefix: 'un-',
+  // 仅匹配前缀属性
+  prefixedOnly: true,
+})
+```
+
 ```html
 <a 
   text="red" 
@@ -328,24 +337,15 @@ For example
 </a>
 ```
 
-```ts
-presetAttributifyWechat({
-  // 前缀属性默认值`un-`
-  prefix: 'un-',
-  // 仅匹配前缀属性
-  prefixedOnly: true,
-})
-```
 
 ## transformEscape
 > 针对 `uniappp vue2` `taro` `webpack插件`， `bg="[#333]"` 编译后变成 `bg-  333`，导致样式无法正常显示
 > 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
 * 默认开启，设置 `transformEscape`
-* 通过 `transformRules` 设置自定义转换规则
+* 通过 `transformRules` 设置自定义转换规则，[默认转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
 
-
-[转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
+自定义转换规则
 ```ts
 presetAttributifyWechat({
   transformEscape: true,
@@ -385,7 +385,7 @@ presetAttributifyWechat({
 <button 
   bg-green bg-red 
   text="center left" 
-  class="li-bg-green li-bg-red li-text-center li-text-left"
+  class="bg-green bg-red text-center text-left"
 ></button>
 ```
 * 设置 `classPrefix`，生成的class选择器会加上前缀
