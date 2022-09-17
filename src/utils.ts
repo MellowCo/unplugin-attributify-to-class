@@ -1,1 +1,1 @@
-export { extractorAttributify } from './core'
+export { extractorAttributify, defaultAttributes, defaultIgnoreNonValuedAttributes } from './core'
