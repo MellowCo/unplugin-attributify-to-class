@@ -11,15 +11,15 @@ specifiers:
   tsup: ^6.2.3
   typescript: ^4.8.3
   unplugin: ^0.9.5
-  unplugin-transform-we-class: ^0.1.18
-  vite: ^3.1.1
+  unplugin-transform-we-class: ^0.1.19
+  vite: ^3.1.2
   vitest: ^0.23.2
   webpack: ^5.74.0
 
 dependencies:
   '@rollup/pluginutils': 4.2.1
-  unplugin: 0.9.5_ib2g2cl6xb3xc3d2w6tca23gh4
-  unplugin-transform-we-class: 0.1.18_ib2g2cl6xb3xc3d2w6tca23gh4
+  unplugin: 0.9.5_6qjthyqm7xtbvvad73rwvanqlu
+  unplugin-transform-we-class: 0.1.19_6qjthyqm7xtbvvad73rwvanqlu
 
 devDependencies:
   '@antfu/eslint-config': 0.26.3_irgkl5vooow2ydyo6aokmferha
@@ -30,7 +30,7 @@ devDependencies:
   rollup: 2.79.0
   tsup: 6.2.3_typescript@4.8.3
   typescript: 4.8.3
-  vite: 3.1.1
+  vite: 3.1.2
   vitest: 0.23.2
   webpack: 5.74.0
 
@@ -3619,12 +3619,12 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /unplugin-transform-we-class/0.1.18_ib2g2cl6xb3xc3d2w6tca23gh4:
-    resolution: {integrity: sha512-t6odf/9yDUVvL0sp7ad3iP4jkn/6YaxLHalcaoBu2nhg4/lfSJXQAF00mG7JpmL6Vo93feZ1u+DhTv1NiPP89A==}
+  /unplugin-transform-we-class/0.1.19_6qjthyqm7xtbvvad73rwvanqlu:
+    resolution: {integrity: sha512-GK2aWL3HisNrQljQEjCnzEFJa6NRw0Nz5dECC5RdcGDN2n/hDQrh/ecCjCVowFnQWD065LWbXGfYIktORvFJ2Q==}
     dependencies:
       '@meoc/utils': 0.1.8
       '@rollup/pluginutils': 4.2.1
-      unplugin: 0.9.5_ib2g2cl6xb3xc3d2w6tca23gh4
+      unplugin: 0.9.5_6qjthyqm7xtbvvad73rwvanqlu
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -3632,7 +3632,7 @@ packages:
       - webpack
     dev: false
 
-  /unplugin/0.9.5_ib2g2cl6xb3xc3d2w6tca23gh4:
+  /unplugin/0.9.5_6qjthyqm7xtbvvad73rwvanqlu:
     resolution: {integrity: sha512-luraheyfxwtvkvHpsOvMNv7IjLdORTWKZp0gWYNHGLi2ImON3iIZOj464qEyyEwLA/EMt12fC415HW9zRpOfTg==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -3652,7 +3652,7 @@ packages:
       acorn: 8.8.0
       chokidar: 3.5.3
       rollup: 2.79.0
-      vite: 3.1.1
+      vite: 3.1.2
       webpack: 5.74.0
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
@@ -3674,8 +3674,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite/3.1.1:
-    resolution: {integrity: sha512-hgxQWev/AL7nWYrqByYo8nfcH9n97v6oFsta9+JX8h6cEkni7nHKP2kJleNYV2kcGhE8jsbaY1aStwPZXzPbgA==}
+  /vite/3.1.2:
+    resolution: {integrity: sha512-wTDKPkiVbeT+drTPdkuvjVIC/2vKKUc1w3qNOuwgpyvPCZF6fvdxB5v5WEcCsqaYea0zrwA4+XialJKCHM3oVQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3732,7 +3732,7 @@ packages:
       tinybench: 2.1.5
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.1.1
+      vite: 3.1.2
     transitivePeerDependencies:
       - less
       - sass
