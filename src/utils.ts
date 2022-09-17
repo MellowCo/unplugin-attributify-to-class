@@ -1,0 +1,1 @@
+export { extractorAttributify } from './core'
