@@ -29,12 +29,7 @@ interface TransformOption {
   elementStr: string
 
   /**
-   * 元素标签备份
-   */
-  tempStr: string
-
-  /**
-   * 是否有静态class
+   * 静态class
    */
   staticClass: string
 
@@ -69,31 +64,29 @@ export const extractorAttributify = (options?: Options): any => {
 
           const option: TransformOption = {
             elementStr,
-            tempStr: elementStr,
             staticClass: '',
             selectors: [],
           }
+
           valuedAttributes.forEach(([sourceStr, name, _, content]) => {
             const _name = prefixedOnly ? name.replace(prefix, '') : name
 
             if (!content) {
-              // 处理 class="" ，生成 2 个 class 属性的问题
+              // fix: class="" ，生成 2 个 class 属性的问题
               if (name === 'class')
                 option.staticClass = sourceStr
 
-              // 处理 transform pt2 rounded-sm 单值属性
+              // 获取单值属性 <view p-2 m-2 />
               if (isValidSelector(name) && nonValuedAttribute !== false) {
-              // 不是忽略的非值属性
-                if (!ignoreNonValuedAttributes.includes(name)) {
-                // option.tempStr = option.tempStr.replace(name, '')
+                // 是否为忽略的单值属性
+                if (!ignoreNonValuedAttributes.includes(name))
                   option.selectors.push(transformEscape ? transformSelector(`${classPrefix}${name}`, transformRules) : `${classPrefix}${name}`)
-                }
               }
               return
             }
 
+            // : v-bind @ v-on 开头的属性 不处理
             for (const prefix of strippedPrefixes) {
-            // 如果是 : v-bind @ v-on 开头的属性，则不处理
               if (name.startsWith(prefix)) {
                 name = name.slice(prefix.length)
                 return
@@ -104,21 +97,23 @@ export const extractorAttributify = (options?: Options): any => {
             if (!attributes.includes(_name))
               return
 
+            // 是否存在静态class
             if (['class', 'className'].includes(name)) {
               option.staticClass = sourceStr
             }
 
             else {
+              // 是否只匹配 prefix
               if (prefixedOnly && !name.startsWith(prefix))
                 return
 
-              // 处理 bg="blue-400"
+              // 生成 class 选择器
+              // bg="blue-400" => bg-blue-400
               const attributifyToClass = content
                 .split(splitterRE)
                 .filter(Boolean)
                 .map(v => v === '~' ? `${classPrefix}${_name}` : `${classPrefix}${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
 
-              // option.tempStr = option.tempStr.replace(sourceStr, '')
               option.selectors.push(attributifyToClass)
             }
           })
@@ -126,19 +121,20 @@ export const extractorAttributify = (options?: Options): any => {
           result.push(option)
         })
 
-      result.forEach(({ elementStr, tempStr, staticClass, selectors }) => {
+      result.forEach(({ elementStr, staticClass, selectors }) => {
         if (selectors.length === 0)
           return
 
         if (staticClass) {
-          tempStr = tempStr.replace(staticClass, spliceStr(staticClass, -1, ` ${selectors.join(' ')}`))
-          code = code.replace(elementStr, tempStr)
+          const replaceStr = elementStr.replace(staticClass, spliceStr(staticClass, -1, ` ${selectors.join(' ')}`))
+          code = code.replace(elementStr, replaceStr)
         }
         else {
-          const className = ` class="${selectors.join(' ')}"`
+          const classStr = ` class="${selectors.join(' ')}"`
+          // fix: 自闭合标签 插入位置
           const insertIndex = elementStr.endsWith('/>') ? -2 : -1
 
-          code = code.replace(elementStr, spliceStr(tempStr, insertIndex, className))
+          code = code.replace(elementStr, spliceStr(elementStr, insertIndex, classStr))
         }
       })
     }
