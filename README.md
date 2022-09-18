@@ -26,7 +26,6 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
   bg="blue-400">
   button
 </button>
-
 ```
 生成后的css
 ```css
@@ -64,20 +63,12 @@ npm i -D unplugin-unocss-attributify-wechat
 vite
 ```ts
 import { defineConfig } from 'vite'
-import Unocss from 'unocss/vite'
-import transformWeClass from 'unplugin-transform-we-class/vite'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 export default defineConfig({
   plugins: [
     // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
     presetAttributifyWechat(),
-  
-    // https://github.com/antfu/unocss
-    Unocss(),
-
-    // https://github.com/MellowCo/unplugin-transform-we-class
-    transformWeClass(),
   ],
 })
 
@@ -85,21 +76,13 @@ export default defineConfig({
 
 webpack
 ```js
-const UnoCSS = require('@unocss/webpack').default
-const transformWeClass = require('unplugin-transform-we-class/webpack')
 const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-unocss-attributify-wechat/webpack')
 
 module.exports = {
   configureWebpack: {
     plugins: [
-      // https://github.com/unocss/unocss
-      UnoCSS(),
-
       // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
       presetAttributifyWechat(),
-
-      // https://github.com/MellowCo/unplugin-transform-we-class
-      transformWeClass(),
     ],
   },
 }
@@ -403,49 +386,3 @@ const classPrefixExtract = extractorAttributify({
   class="li-bg-green li-bg-red li-text-center li-text-left"
 ></button>
 ```
-
-## 原子化 css 冲突问题
-> 例如 [tmui](https://tmui.design/)，自身有一套[原子化 css](https://tmui.design/doc/CSSTool/css.html)，导致与 unocss 冲突
-
-![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311130610.png)
-
-
-1. unocss.config.ts
->  `unocss` 设置 `prefix`
-```ts
-export default {
-  presets: [
-  // https://github.com/MellowCo/unocss-preset-weapp
-    presetWeapp({
-      prefix: 'li-',
-    }),
-  ]
-}
-```
-
-2. vite.config.ts 
-> `presetAttributifyWechat` 设置 `classPrefix` 
-```ts
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-    presetAttributifyWechat({
-      nonValuedAttribute: true,
-      classPrefix: 'li-',
-    }),
-  ],
-})
-```
-
-> 这样冲突问题就解决了
-```html
-<view bg="#333" p="x-6 y-10" w100 h200 class="li-bg-red">
-  this is a unocss
-</view>
-```
-
-![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202208311149877.png)
-
-
-[tm-ui-demo](https://github.com/MellowCo/unplugin-unocss-attributify-wechat/tree/master/examples/tm-ui-demo)
