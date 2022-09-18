@@ -2,19 +2,11 @@ import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 // import Components from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/vite'
-import transformWeClass from 'unplugin-transform-we-class/vite'
-import { presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     uni(),
-
-    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
-    presetAttributifyWechat({
-      nonValuedAttribute: true,
-      classPrefix: 'li-',
-    }),
 
     // app打包配置
     // uniapp打包app时，打包2次，一次使用 vue 模式打包h5，第2次使用 nvue 模式打包app，
@@ -22,10 +14,5 @@ export default defineConfig({
     // entry module not found, have you add `import 'uno.css'` in your main entry?
     // 导致打包终止
     process.env.UNI_COMPILER !== 'nvue' ? Unocss() : undefined,
-
-    // https://github.com/MellowCo/unplugin-transform-we-class
-    transformWeClass({
-      // options
-    }),
   ],
 })
