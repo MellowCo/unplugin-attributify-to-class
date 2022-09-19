@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/npm/v/unplugin-attributify-to-class.svg?style=flat-square&logo=npm) 
 ![Downloads](https://img.shields.io/npm/dm/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-attributify-to-class)
 
-将原子化css [attributify mode]([unocss/packages/preset-attributify at main · unocss/unocss (github.com)](https://github.com/unocss/unocss/tree/main/packages/preset-attributify#attributify-mode)) 收集并添加到 class 中， 以支持在小程序中使用 attributify mode
+将原子化css [attributify mode](https://github.com/unocss/unocss/tree/main/packages/preset-attributify#attributify-mode) 收集并添加到 class 中， 以支持在小程序中使用 attributify mode
 
 为了贴合功能语义，`unplugin-unocss-attributify-wechat` 改名为 `unplugin-attributify-to-class`
 
