@@ -20,8 +20,8 @@ specifiers:
   typescript: ^4.7.3
   unocss: ^0.45.13
   unocss-preset-weapp: ^0.1.11
-  unplugin-transform-we-class: ^0.1.17
-  unplugin-unocss-attributify-wechat: link:../../
+  unplugin-attributify-to-class: link:../../
+  unplugin-transform-class: ^0.1.17
   vite: ^2.9.13
   vue: ^3.2.37
   vue-i18n: ^9.1.9
@@ -52,8 +52,8 @@ devDependencies:
   typescript: 4.7.4
   unocss: 0.45.13_vite@2.9.14
   unocss-preset-weapp: 0.1.11_vite@2.9.14
-  unplugin-transform-we-class: 0.1.17_vite@2.9.14
-  unplugin-unocss-attributify-wechat: link:../..
+  unplugin-attributify-to-class: link:../..
+  unplugin-transform-class: 0.1.19_vite@2.9.14
   vite: 2.9.14
 
 packages:
@@ -2810,6 +2810,19 @@ packages:
   /unpipe/1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /unplugin-transform-class/0.1.19_vite@2.9.14:
+    resolution: {integrity: sha512-fohiMSMJDnQAfRIhiuBq3e7cMfI56qhWvYPGqBxK/z2O1jGi68jxYwbRU/Y5C56chWzwgCs/nKFKP2ITFL71jQ==}
+    dependencies:
+      '@meoc/utils': 0.1.8
+      '@rollup/pluginutils': 4.2.1
+      unplugin: 0.9.5_vite@2.9.14
+    transitivePeerDependencies:
+      - esbuild
+      - rollup
+      - vite
+      - webpack
     dev: true
 
   /unplugin-transform-we-class/0.1.17_vite@2.9.14:
