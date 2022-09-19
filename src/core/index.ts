@@ -1,4 +1,4 @@
-import { defaultRules, transformSelector } from 'unplugin-transform-we-class/utils'
+import { defaultRules, transformSelector } from 'unplugin-transform-class/utils'
 import type { Options } from '../types'
 
 const strippedPrefixes = [

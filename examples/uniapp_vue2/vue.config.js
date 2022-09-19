@@ -1,5 +1,5 @@
 const UnoCSS = require('unocss-webpack-uniapp2').default
-const transformWeClass = require('unplugin-transform-we-class/webpack')
+const transformWeClass = require('unplugin-transform-class/webpack')
 const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-attributify-to-class/webpack')
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
         prefix: 'li-',
         prefixedOnly: false,
       }),
-      // https://github.com/MellowCo/unplugin-transform-we-class
+      // https://github.com/MellowCo/unplugin-transform-class
       transformWeClass(),
     ],
   },

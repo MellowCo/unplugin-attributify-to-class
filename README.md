@@ -11,7 +11,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 相关链接
 * [UnoCSS](https://github.com/unocss/unocss) - 即时按需原子CSS引擎
 * [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - UnoCSS 微信小程序预设
-* [unplugin-transform-we-class](https://github.com/MellowCo/unplugin-transform-we-class) - 小程序原子化 CSS 转换转义类名插件
+* [unplugin-transform-class](https://github.com/MellowCo/unplugin-transform-class) - 小程序原子化 CSS 转换转义类名插件
 * [unplugin-attributify-to-class](https://github.com/MellowCo/unplugin-attributify-to-class) - 小程序 Attributify Mode 插件
 * [unocss-webpack-uniapp2](https://github.com/MellowCo/unocss-webpack-uniapp2#unocss-webpack-uniapp2) - 兼容 UniApp Vue2 App开发插件
 * [uni-vue3-starter](https://github.com/MellowCo/uni-vue3-starter) - Uniapp-Vite 模版
@@ -326,7 +326,7 @@ presetAttributifyWechat({
 > 将 `bg="[#333]"` 提前转义 `bg="[#333]" => bg--fl--w-333-fr`
 
 * 默认开启，设置 `transformEscape`
-* 通过 `transformRules` 设置自定义转换规则，[默认转换规则](https://github.com/MellowCo/unplugin-transform-we-class)
+* 通过 `transformRules` 设置自定义转换规则，[默认转换规则](https://github.com/MellowCo/unplugin-transform-class)
 
 自定义转换规则
 ```ts
