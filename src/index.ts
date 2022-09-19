@@ -12,7 +12,7 @@ export default createUnplugin<Options>((options) => {
   )
 
   return {
-    name: 'unplugin-unocss-attributify-wechat',
+    name: 'unplugin-attributify-to-class',
     enforce: 'pre',
     transformInclude(id) {
       return filter(id)

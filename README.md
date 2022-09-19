@@ -1,7 +1,7 @@
-# unplugin-unocss-attributify-wechat
+# unplugin-attributify-to-class
 
-[![Version](https://img.shields.io/npm/v/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm) 
-![Downloads](https://img.shields.io/npm/dm/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-unocss-attributify-wechat)
+[![Version](https://img.shields.io/npm/v/unplugin-attributify-to-class.svg?style=flat-square&logo=npm) 
+![Downloads](https://img.shields.io/npm/dm/unplugin-attributify-to-class.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-attributify-to-class)
 
 Starter template for [unplugin](https://github.com/unjs/unplugin)
 
@@ -12,7 +12,7 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 * [UnoCSS](https://github.com/unocss/unocss) - 即时按需原子CSS引擎
 * [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - UnoCSS 微信小程序预设
 * [unplugin-transform-we-class](https://github.com/MellowCo/unplugin-transform-we-class) - 小程序原子化 CSS 转换转义类名插件
-* [unplugin-unocss-attributify-wechat](https://github.com/MellowCo/unplugin-unocss-attributify-wechat) - 小程序 Attributify Mode 插件
+* [unplugin-attributify-to-class](https://github.com/MellowCo/unplugin-attributify-to-class) - 小程序 Attributify Mode 插件
 * [unocss-webpack-uniapp2](https://github.com/MellowCo/unocss-webpack-uniapp2#unocss-webpack-uniapp2) - 兼容 UniApp Vue2 App开发插件
 * [uni-vue3-starter](https://github.com/MellowCo/uni-vue3-starter) - Uniapp-Vite 模版
 
@@ -57,17 +57,17 @@ Starter template for [unplugin](https://github.com/unjs/unplugin)
 
 ## 安装
 ```shell
-npm i -D unplugin-unocss-attributify-wechat
+npm i -D unplugin-attributify-to-class
 ```
 
 vite
 ```ts
 import { defineConfig } from 'vite'
-import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-attributify-to-class/vite'
 
 export default defineConfig({
   plugins: [
-    // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+    // https://github.com/MellowCo/unplugin-attributify-to-class
     presetAttributifyWechat(),
   ],
 })
@@ -76,12 +76,12 @@ export default defineConfig({
 
 webpack
 ```js
-const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-unocss-attributify-wechat/webpack')
+const { defaultAttributes, defaultIgnoreNonValuedAttributes, presetAttributifyWechat } = require('unplugin-attributify-to-class/webpack')
 
 module.exports = {
   configureWebpack: {
     plugins: [
-      // https://github.com/MellowCo/unplugin-unocss-attributify-wechat
+      // https://github.com/MellowCo/unplugin-attributify-to-class
       presetAttributifyWechat(),
     ],
   },
@@ -214,7 +214,7 @@ export interface Options {
 使用 `attributes` , 添加新的属性
 
 ```ts
-import { defaultAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultAttributes, presetAttributifyWechat } from 'unplugin-attributify-to-class/vite'
 
 presetAttributifyWechat({
   attributes: [...defaultAttributes, 'my-attr']
@@ -272,7 +272,7 @@ presetAttributifyWechat({
 
 配置 `ignoreNonValuedAttributes` 忽略 `my-prop` `is-top`
 ```ts
-import { defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-unocss-attributify-wechat/vite'
+import { defaultIgnoreNonValuedAttributes, presetAttributifyWechat } from 'unplugin-attributify-to-class/vite'
 
 presetAttributifyWechat({
   // 开启 valueless attributify

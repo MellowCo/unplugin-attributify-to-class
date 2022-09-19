@@ -1,23 +1,24 @@
 {
-  "name": "unplugin-unocss-attributify-wechat",
+  "name": "unplugin-attributify-to-class",
   "version": "0.1.15",
   "packageManager": "pnpm@7.1.1",
-  "description": "Register global imports on demand for Vite and Webpack",
+  "description": "css attributify mode to class, support use in vite, rollup, webpack",
   "license": "MIT",
-  "homepage": "https://github.com/MellowCo/unplugin-unocss-attributify-wechat#readme",
+  "homepage": "https://github.com/MellowCo/unplugin-attributify-to-class#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MellowCo/unplugin-unocss-attributify-wechat.git"
+    "url": "git+https://github.com/MellowCo/unplugin-attributify-to-class.git"
   },
   "bugs": {
-    "url": "https://github.com/MellowCo/unplugin-unocss-attributify-wechat/issues"
+    "url": "https://github.com/MellowCo/unplugin-attributify-to-class/issues"
   },
   "keywords": [
     "unplugin",
     "vite",
     "webpack",
     "rollup",
-    "transform"
+    "transform",
+    "attributify"
   ],
   "exports": {
     ".": {
@@ -83,10 +84,10 @@
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
     "unplugin": "^0.9.5",
-    "unplugin-transform-we-class": "^0.1.19"
+    "unplugin-transform-class": "^0.1.19"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.3",
+    "@antfu/eslint-config": "^0.27.0",
     "@types/node": "^18.7.18",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
@@ -95,7 +96,7 @@
     "tsup": "^6.2.3",
     "typescript": "^4.8.3",
     "vite": "^3.1.2",
-    "vitest": "^0.23.2",
+    "vitest": "^0.23.4",
     "webpack": "^5.74.0"
   }
 }
