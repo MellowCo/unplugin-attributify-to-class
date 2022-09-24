@@ -392,12 +392,12 @@ attributifyToClass({
 setting classPrefix with `li-`
 
 ```ts
-const classPrefixExtract = extractorAttributify({
+attributifyToClass({
   nonValuedAttribute: true,
   classPrefix: 'li-',
 })
 ```
-
+转换后，会在生成的class中，添加前缀，bg-green => class="li-bg-green"
 ```html
 <button 
   bg-green bg-red 
