@@ -3,7 +3,7 @@ unplugin-attributify-to-class
 </H1>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/MellowCo/unplugin-attributify-to-class/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/MellowCo/unplugin-attributify-to-class/blob/master/README.zh-CN.md">简体中文</a>
 </p>
 
 [![Version](https://img.shields.io/npm/v/unplugin-attributify-to-class.svg?style=flat-square&logo=npm) 
