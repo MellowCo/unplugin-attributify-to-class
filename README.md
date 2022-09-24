@@ -17,7 +17,7 @@ to fit the functional semantics，`unplugin-unocss-attributify-wechat` rename to
 
 ---
 
-## why use it
+## Why use it
 
 use `@unocss/preset-attributify` 
 ```html
@@ -61,7 +61,7 @@ transform
 
 ---
 
-## installation
+## Installation
 ```shell
 npm i -D unplugin-attributify-to-class
 ```
@@ -106,9 +106,9 @@ module.exports = {
 <br></details>
 
 
-## usage
+## Usage
 
-### options
+### Options
 ```ts
 export interface Options {
 
@@ -286,7 +286,7 @@ After transform ，`my-prop` and  `is-top` will be add to class
 />
 ```
 
-setting  `ignoreNonValuedAttributes` to ignore `my-prop` `is-top`
+Setting  `ignoreNonValuedAttributes` to ignore `my-prop` `is-top`
 ```ts
 import { attributifyToClass, defaultIgnoreNonValuedAttributes } from 'unplugin-attributify-to-class/vite'
 // import { attributifyToClass, defaultIgnoreNonValuedAttributes } from 'unplugin-attributify-to-class/webpack'
@@ -318,7 +318,7 @@ If the name of the attributes mode ever conflicts with the elements' or componen
 </a>
 ```
 
-setting
+Setting
 
 ```ts
 attributifyToClass({
@@ -338,7 +338,7 @@ attributifyToClass({
 ```
 
 
-### transformEscape
+### TransformEscape
 > Because `uniappp vue2` `taro` `webpack plugin`， `bg="[#333]"` compile as `bg-  333`, the style cannot be displayed normally
 > so transform escape char for bg="[#333]", `bg="[#333]" => bg--fl--w-333-fr`
 
@@ -367,7 +367,7 @@ attributifyToClass({
 })
 ```
 
-### include exclude
+### Include exclude
 ```ts
 attributifyToClass({
   exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]my-folder[\\/]/],
@@ -377,7 +377,7 @@ attributifyToClass({
 
 ---
 ### classPrefix
-> add prefix for class 
+> Add prefix for class 
 
 ```html
 <button bg-green bg-red text="center left"></button>
@@ -389,7 +389,7 @@ attributifyToClass({
 ></button>
 ```
 
-setting classPrefix with `li-`
+Setting classPrefix with `li-`
 
 ```ts
 attributifyToClass({
@@ -397,7 +397,7 @@ attributifyToClass({
   classPrefix: 'li-',
 })
 ```
-转换后，会在生成的class中，添加前缀，bg-green => class="li-bg-green"
+After transform , bg-green => class="li-bg-green"
 ```html
 <button 
   bg-green bg-red 

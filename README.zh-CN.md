@@ -15,7 +15,7 @@ unplugin-attributify-to-class
 为了贴合功能语义，`unplugin-unocss-attributify-wechat` 改名为 `unplugin-attributify-to-class`
 
 ---
-
+## 为什么使用
 使用 `@unocss/preset-attributify` 
 ```html
 <button
@@ -393,6 +393,7 @@ const classPrefixExtract = extractorAttributify({
   classPrefix: 'li-',
 })
 ```
+转换后，会在生成的 `class` 中，添加前缀，bg-green => class="li-bg-green"
 
 ```html
 <button 
