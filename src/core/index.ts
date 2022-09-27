@@ -41,7 +41,7 @@ interface TransformOption {
 
 export const extractorAttributify = (options?: Options): any => {
   const attributes = options?.attributes ?? defaultAttributes
-  const nonValuedAttribute = options?.nonValuedAttribute ?? false
+  const nonValuedAttribute = options?.nonValuedAttribute ?? true
   const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? defaultIgnoreNonValuedAttributes
   const prefix = options?.prefix ?? 'un-'
   const prefixedOnly = options?.prefixedOnly ?? false

@@ -21,7 +21,7 @@ export interface Options {
    * <div mt-2 />
    * ```
    *
-   * @default false
+   * @default true
    */
   nonValuedAttribute?: boolean
 
