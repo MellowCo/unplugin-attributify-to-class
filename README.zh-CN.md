@@ -136,7 +136,7 @@ export interface Options {
    * <div mt-2 />
    * ```
    *
-   * @default false
+   * @default true
    */
   nonValuedAttribute?: boolean
 
@@ -268,7 +268,7 @@ attributifyToClass({
 ```
 
 注意事项
-* Valueless Attributify 默认是关闭的，需要设置 `nonValuedAttribute` 为 `true` 
+* Valueless Attributify 默认是 `开启` 的，设置 `nonValuedAttribute` 为 `false` 关闭
 * 默认提取所有 valueless 属性，可以设置 `ignoreNonValuedAttributes`，排除掉不需要的属性，避免生成多余的 `class`
 * `ignoreNonValuedAttributes` 默认值 `['class']`
 ```html

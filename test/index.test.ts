@@ -8,12 +8,14 @@ describe('attributify', () => {
       ...defaultAttributes,
       'my-attr',
     ],
+    nonValuedAttribute: false
   })
 
   // 自定义前缀匹配
   const prefixExtract = extractorAttributify({
     prefixedOnly: true,
     prefix: 'un-',
+    nonValuedAttribute: false
   })
 
   // 忽略单值匹配

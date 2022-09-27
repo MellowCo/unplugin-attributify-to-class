@@ -143,7 +143,7 @@ export interface Options {
    * <div mt-2 />
    * ```
    *
-   * @default false
+   * @default true
    */
   nonValuedAttribute?: boolean
 
@@ -269,7 +269,7 @@ It will be add class after transform
 ```
 
 Notice
-* Valueless Attributify default value is `false`，need setting `nonValuedAttribute` for `true` to open
+* Valueless Attributify default value is `true`
 * Extract all valueless attributes by default，you can use `ignoreNonValuedAttributes`，exclude unnecessary attributes to avoid generating redundant class
 * `ignoreNonValuedAttributes` default value is `['class']`
 
