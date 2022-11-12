@@ -19,7 +19,7 @@ function isValidSelector(selector = ''): selector is string {
   return validateFilterRE.test(selector)
 }
 
-export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
+export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate']
 export const defaultIgnoreNonValuedAttributes = ['class']
 
 interface TransformOption {

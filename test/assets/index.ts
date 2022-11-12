@@ -173,3 +173,10 @@ export const classPrefixStr = `
   <view bg-green bg-red text="center left"></view>
 </template>
 `
+
+export const animateStr = `
+<template>
+  <view animate-shake-y animate-iteration-infinite animate-duration-1500></view>
+  <view animate="shake-x iteration-infinite duration-1500"></view>
+</template>
+`

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
-import { IllegalStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr } from './assets'
+import { IllegalStr, animateStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr } from './assets'
 
 describe('attributify', () => {
   const attributesExtract = extractorAttributify({
@@ -8,14 +8,14 @@ describe('attributify', () => {
       ...defaultAttributes,
       'my-attr',
     ],
-    nonValuedAttribute: false
+    nonValuedAttribute: false,
   })
 
   // 自定义前缀匹配
   const prefixExtract = extractorAttributify({
     prefixedOnly: true,
     prefix: 'un-',
-    nonValuedAttribute: false
+    nonValuedAttribute: false,
   })
 
   // 忽略单值匹配
@@ -78,6 +78,7 @@ describe('attributify', () => {
   test('nonValueExtract', async () => {
     expect(nonValueExtract(fixture1)).toMatchSnapshot()
     expect(nonValueExtract(fixture2)).toMatchSnapshot()
+    expect(nonValueExtract(animateStr)).toMatchSnapshot()
   })
 
   test('completeExtract', async () => {

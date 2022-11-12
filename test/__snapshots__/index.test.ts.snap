@@ -18,7 +18,7 @@ exports[`attributify > attributesExtract 1`] = `
       bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
       li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
       un-bg=\\"red-500 hover:red-500 dark:!red-500 dark:hover:red-500\\"
-      class=\\"text-red font-bold bg-blue-400 bg-hover-c-blue-400 bg-dark-c--e-blue-400 bg-dark-c-hover-c-blue-400\\"
+      class=\\"text-red font-bold bg-blue-400 bg-hover-cl-blue-400 bg-dark-cl--el-blue-400 bg-dark-cl-hover-cl-blue-400\\"
       :loading=\\"loading\\"
       my-class=\\"text-red font-bold\\"
       title=\\"this is title\\"
@@ -64,13 +64,13 @@ exports[`attributify > attributesExtract 1`] = `
       font=\\"mono light\\"
       p=\\"y-2 x-4\\"
       border=\\"2 rounded blue-200\\"
-     class=\\"bg-blue-400 bg-hover-c-blue-500 bg-dark-c-blue-500 bg-dark-c-hover-c-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover-cl-blue-500 bg-dark-cl-blue-500 bg-dark-cl-hover-cl-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
       Button
     </button>
 
     <button 
       bg=\\"#333 grey-200 [#444]/40 red/50\\"
-     class=\\"bg--w-333 bg-grey-200 bg--fl--w-444-fr--s-40 bg-red-s-50\\">
+     class=\\"bg--wn-333 bg-grey-200 bg--lfl--wn-444-lfr--sl-40 bg-red-sl-50\\">
       Button
     </button>
 
@@ -163,7 +163,7 @@ exports[`attributify > escapeStr 1`] = `
 "
 <template>
   <button 
-  bg=\\"#333 grey-200 [#444]/40 red/50\\" class=\\"bg--w-333 bg-grey-200 bg--fl--w-444-fr--s-40 bg-red-s-50\\">  
+  bg=\\"#333 grey-200 [#444]/40 red/50\\" class=\\"bg--wn-333 bg-grey-200 bg--lfl--wn-444-lfr--sl-40 bg-red-sl-50\\">  
     Button
   </button>
 </template>"
@@ -188,7 +188,7 @@ exports[`attributify > ignoreNonValueExtract 1`] = `
       bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
       li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
       un-bg=\\"red-500 hover:red-500 dark:!red-500 dark:hover:red-500\\"
-      class=\\"text-red font-bold text-center flex-col align-center select-none all-c-transition-400 bg-blue-400 bg-hover-c-blue-400 bg-dark-c--e-blue-400 bg-dark-c-hover-c-blue-400 non-value\\"
+      class=\\"text-red font-bold text-center flex-col align-center select-none all-cl-transition-400 bg-blue-400 bg-hover-cl-blue-400 bg-dark-cl--el-blue-400 bg-dark-cl-hover-cl-blue-400 non-value\\"
       :loading=\\"loading\\"
       my-class=\\"text-red font-bold\\"
       title=\\"this is title\\"
@@ -234,13 +234,13 @@ exports[`attributify > ignoreNonValueExtract 1`] = `
       font=\\"mono light\\"
       p=\\"y-2 x-4\\"
       border=\\"2 rounded blue-200\\"
-     class=\\"bg-blue-400 bg-hover-c-blue-500 bg-dark-c-blue-500 bg-dark-c-hover-c-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover-cl-blue-500 bg-dark-cl-blue-500 bg-dark-cl-hover-cl-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
       Button
     </button>
 
     <button 
       bg=\\"#333 grey-200 [#444]/40 red/50\\"
-     class=\\"bg--w-333 bg-grey-200 bg--fl--w-444-fr--s-40 bg-red-s-50\\">
+     class=\\"bg--wn-333 bg-grey-200 bg--lfl--wn-444-lfr--sl-40 bg-red-sl-50\\">
       Button
     </button>
 
@@ -253,7 +253,7 @@ exports[`attributify > ignoreNonValueExtract 1`] = `
 exports[`attributify > ignoreNonValueExtract 2`] = `
 "
 <template>
-  <div h-80 text-center flex flex-col align-center select-none all:transition-400 class=\\"text-center flex-col align-center select-none all-c-transition-400\\">
+  <div h-80 text-center flex flex-col align-center select-none all:transition-400 class=\\"text-center flex-col align-center select-none all-cl-transition-400\\">
     <input type=\\"checkbox\\" peer mt-a class=\\"peer mt-a\\">
     <div mb-a group peer-checked=\\"text-4xl\\" class=\\"mb-a group\\">
       <div
@@ -311,7 +311,7 @@ exports[`attributify > nonValueExtract 1`] = `
       bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
       li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
       un-bg=\\"red-500 hover:red-500 dark:!red-500 dark:hover:red-500\\"
-      class=\\"text-red font-bold h-80 text-center flex flex-col align-center select-none all-c-transition-400 bg-blue-400 bg-hover-c-blue-400 bg-dark-c--e-blue-400 bg-dark-c-hover-c-blue-400 my-prop non-value\\"
+      class=\\"text-red font-bold h-80 text-center flex flex-col align-center select-none all-cl-transition-400 bg-blue-400 bg-hover-cl-blue-400 bg-dark-cl--el-blue-400 bg-dark-cl-hover-cl-blue-400 my-prop non-value\\"
       :loading=\\"loading\\"
       my-class=\\"text-red font-bold\\"
       title=\\"this is title\\"
@@ -357,13 +357,13 @@ exports[`attributify > nonValueExtract 1`] = `
       font=\\"mono light\\"
       p=\\"y-2 x-4\\"
       border=\\"2 rounded blue-200\\"
-     class=\\"bg-blue-400 bg-hover-c-blue-500 bg-dark-c-blue-500 bg-dark-c-hover-c-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
+     class=\\"bg-blue-400 bg-hover-cl-blue-500 bg-dark-cl-blue-500 bg-dark-cl-hover-cl-blue-600 text-sm text-white font-mono font-light p-y-2 p-x-4 border-2 border-rounded border-blue-200\\">
       Button
     </button>
 
     <button 
       bg=\\"#333 grey-200 [#444]/40 red/50\\"
-     class=\\"bg--w-333 bg-grey-200 bg--fl--w-444-fr--s-40 bg-red-s-50\\">
+     class=\\"bg--wn-333 bg-grey-200 bg--lfl--wn-444-lfr--sl-40 bg-red-sl-50\\">
       Button
     </button>
 
@@ -376,7 +376,7 @@ exports[`attributify > nonValueExtract 1`] = `
 exports[`attributify > nonValueExtract 2`] = `
 "
 <template>
-  <div h-80 text-center flex flex-col align-center select-none all:transition-400 class=\\"h-80 text-center flex flex-col align-center select-none all-c-transition-400\\">
+  <div h-80 text-center flex flex-col align-center select-none all:transition-400 class=\\"h-80 text-center flex flex-col align-center select-none all-cl-transition-400\\">
     <input type=\\"checkbox\\" peer mt-a class=\\"peer mt-a\\">
     <div mb-a group peer-checked=\\"text-4xl\\" class=\\"mb-a group\\">
       <div
@@ -425,6 +425,15 @@ onHide(() => {
 "
 `;
 
+exports[`attributify > nonValueExtract 3`] = `
+"
+<template>
+  <view animate-shake-y animate-iteration-infinite animate-duration-1500 class=\\"animate-shake-y animate-iteration-infinite animate-duration-1500\\"></view>
+  <view animate=\\"shake-x iteration-infinite duration-1500\\" class=\\"animate-shake-x animate-iteration-infinite animate-duration-1500\\"></view>
+</template>
+"
+`;
+
 exports[`attributify > prefixExtract 1`] = `
 "
 <template>
@@ -434,7 +443,7 @@ exports[`attributify > prefixExtract 1`] = `
       bg=\\"blue-400 hover:blue-400 dark:!blue-400 dark:hover:blue-400\\"
       li-bg=\\"blue-500 hover:blue-500 dark:!blue-500 dark:hover:blue-500\\"
       un-bg=\\"red-500 hover:red-500 dark:!red-500 dark:hover:red-500\\"
-      class=\\"text-red font-bold bg-red-500 bg-hover-c-red-500 bg-dark-c--e-red-500 bg-dark-c-hover-c-red-500\\"
+      class=\\"text-red font-bold bg-red-500 bg-hover-cl-red-500 bg-dark-cl--el-red-500 bg-dark-cl-hover-cl-red-500\\"
       :loading=\\"loading\\"
       my-class=\\"text-red font-bold\\"
       title=\\"this is title\\"
@@ -551,7 +560,7 @@ onHide(() => {
 exports[`attributify > scriptStr 1`] = `
 "
 <template>
-  <view bg=\\"#333\\" p=\\"x-6 y-10\\" w100 h200 class=\\"bg--w-333 p-x-6 p-y-10 w100 h200\\">this is a unocss</view>
+  <view bg=\\"#333\\" p=\\"x-6 y-10\\" w100 h200 class=\\"bg--wn-333 p-x-6 p-y-10 w100 h200\\">this is a unocss</view>
 </template>
 
 <script lang=\\"ts\\" setup>

@@ -125,7 +125,7 @@ export interface Options {
 
   /**
    * A list of attributes to transform class
-   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
+   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate']
    */
   attributes?: string[]
 
@@ -155,20 +155,7 @@ export interface Options {
 
   /**
    * Custom transform Rules for escape char
-   * @default
-   * {
-      '.': '-d-',
-      '/': '-s-',
-      ':': '-c-',
-      '%': '-p-',
-      '!': '-e-',
-      '#': '-w-',
-      '(': '-bl-',
-      ')': '-br-',
-      '[': '-fl-',
-      ']': '-fr-',
-      '$': '-r-',
-    }
+   * @default https://github.com/MellowCo/unplugin-transform-class#options
    */
   transformRules?: Record<string, string>
 
@@ -204,7 +191,7 @@ See [attributify-mode](https://github.com/unocss/unocss/tree/main/packages/prese
   Button
 </button>
 ```
-Default transfrom attributes list ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm'] 
+Default transfrom attributes list ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate'] 
 
 ```html
 <button 
@@ -348,17 +335,17 @@ attributifyToClass({
 custom transfrom rules
 ```ts
 const myRules = {
-  '.': '-d-',
-  '/': '-s-',
-  ':': '-c-',
-  '%': '-p-',
-  '!': '-e-',
-  '#': '-w-',
-  '(': '-bl-',
-  ')': '-br-',
-  '[': '-fl-',
-  ']': '-fr-',
-  '$': '-r-',
+  '.': '-dxxx-',
+  '/': '-sxxx-',
+  ':': '-cxxx-',
+  '%': '-pxxx-',
+  '!': '-exxx-',
+  '#': '-wxxx-',
+  '(': '-blxxx-',
+  ')': '-brxxx-',
+  '[': '-flxxx-',
+  ']': '-frxxx-',
+  '$': '-rxxx-',
 }
 
 attributifyToClass({

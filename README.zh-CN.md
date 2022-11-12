@@ -118,7 +118,7 @@ export interface Options {
 
   /**
    * 需要转换的属性列表
-   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']
+   * @default ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate']
    */
   attributes?: string[]
 
@@ -148,20 +148,7 @@ export interface Options {
 
   /**
    * 自定义转义字符转换规则
-   * @default
-   * {
-      '.': '-d-',
-      '/': '-s-',
-      ':': '-c-',
-      '%': '-p-',
-      '!': '-e-',
-      '#': '-w-',
-      '(': '-bl-',
-      ')': '-br-',
-      '[': '-fl-',
-      ']': '-fr-',
-      '$': '-r-',
-    }
+   * @default https://github.com/MellowCo/unplugin-transform-class#options
    */
   transformRules?: Record<string, string>
 
@@ -194,7 +181,7 @@ export interface Options {
 </button>
 ```
 
-默认转换的属性列表为 ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm']   
+默认转换的属性列表为 ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate']   
 ```html
 <button 
   text="sm white"
