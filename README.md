@@ -396,4 +396,16 @@ After transform , bg-green => class="li-bg-green"
 related links
 * [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - Uthe unocss preset for wechat miniprogram.
 
+---
+### utils
+```ts
+import { extractorAttributify } from 'unplugin-attributify-to-class/utils'
+const options = {
+  // ...
+}
 
+const extractor = extractorAttributify(options)
+
+const code = 'xxxxx'
+const newCode = extractor(code)
+```

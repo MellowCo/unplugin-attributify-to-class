@@ -391,6 +391,21 @@ const classPrefixExtract = extractorAttributify({
 ```
 
 
+---
+### utils 导出
+```ts
+import { extractorAttributify } from 'unplugin-attributify-to-class/utils'
+const options = {
+  // ...
+}
+
+const extractor = extractorAttributify(options)
+
+const code = 'xxxxx'
+const newCode = extractor(code)
+```
+
+
 相关链接
 * [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - UnoCSS 小程序预设
 
