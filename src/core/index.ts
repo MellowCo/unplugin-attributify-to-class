@@ -76,11 +76,15 @@ export const extractorAttributify = (options?: Options): any => {
               if (name === 'class')
                 option.staticClass = sourceStr
 
+              // 是否只匹配 prefix
+              if (prefixedOnly && !name.startsWith(prefix))
+                return
+
               // 获取单值属性 <view p-2 m-2 />
-              if (isValidSelector(name) && nonValuedAttribute !== false) {
+              if (isValidSelector(_name) && nonValuedAttribute !== false) {
                 // 是否为忽略的单值属性
-                if (!ignoreNonValuedAttributes.includes(name))
-                  option.selectors.push(transformEscape ? transformSelector(`${classPrefix}${name}`, transformRules) : `${classPrefix}${name}`)
+                if (!ignoreNonValuedAttributes.includes(_name))
+                  option.selectors.push(transformEscape ? transformSelector(`${classPrefix}${_name}`, transformRules) : `${classPrefix}${_name}`)
               }
               return
             }
@@ -101,7 +105,6 @@ export const extractorAttributify = (options?: Options): any => {
             if (['class', 'className'].includes(name)) {
               option.staticClass = sourceStr
             }
-
             else {
               // 是否只匹配 prefix
               if (prefixedOnly && !name.startsWith(prefix))
