@@ -577,3 +577,12 @@ const a = 1
 </script>
 "
 `;
+
+exports[`attributify > valuelessStr 1`] = `
+"
+<template>
+  <view class=\\"flex-1 bg-blue text-_lfl_16px_lfr_ text-center text-100_pes_ text-1_dl_2\\" text-[16px] text-center text-100% text-1.2>text</view>
+  <view class=\\"flex-1 bg-_lfl__wn_ccc_lfr_\\" bg-[#ccc]>text</view>
+</template>
+"
+`;

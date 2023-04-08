@@ -180,3 +180,10 @@ export const animateStr = `
   <view animate="shake-x iteration-infinite duration-1500"></view>
 </template>
 `
+
+export const valuelessStr = `
+<template>
+  <view class="flex-1 bg-blue" text-[16px] text-center text-100% text-1.2>text</view>
+  <view class="flex-1" bg-[#ccc]>text</view>
+</template>
+`

@@ -11,7 +11,7 @@ const strippedPrefixes = [
 const templateRe = /<template>([\s\S]*)<\/template>/g
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:['"`].*?['"`]|.*?)*?)>/gs
-const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:@.!%-]+)(?:=(["'])([^\2]*?)\2)?/g
+const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-\[\]#_:@.!%-]+)(?:=(["'])([^\2]*?)\2)?/g
 
 const validateFilterRE = /(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-_:%-?]/
 
