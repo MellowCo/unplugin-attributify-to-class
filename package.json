@@ -1,7 +1,6 @@
 {
   "name": "unplugin-attributify-to-class",
   "version": "0.2.1",
-  "packageManager": "pnpm@7.1.1",
   "description": "css attributify mode to class, support use in vite, rollup, webpack",
   "license": "MIT",
   "homepage": "https://github.com/MellowCo/unplugin-attributify-to-class#readme",
