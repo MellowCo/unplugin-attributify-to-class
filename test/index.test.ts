@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
-import { IllegalStr, animateStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr, valuelessStr } from './assets'
+import { IllegalStr, animateStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr, valuelessStr, prefixAndClassPrefixStr } from './assets'
+
 
 describe('attributify', () => {
   const attributesExtract = extractorAttributify({
@@ -10,6 +11,9 @@ describe('attributify', () => {
     ],
     nonValuedAttribute: false,
   })
+
+  // 默认配置
+  const defaultExtract = extractorAttributify()
 
   // 自定义前缀匹配
   const prefixExtract = extractorAttributify({
@@ -38,6 +42,13 @@ describe('attributify', () => {
     prefixedOnly: true,
   })
 
+  // prefix and classPrefix
+  const prefixAndClassPrefixExtract = extractorAttributify({
+    prefix: 'pr-',
+    prefixedOnly: true,
+    classPrefix: 'cl-',
+  })
+
   // 指定转换规则
   const customRulesextract = extractorAttributify({
     transformRules: {
@@ -58,6 +69,12 @@ describe('attributify', () => {
   const classPrefixExtract = extractorAttributify({
     nonValuedAttribute: true,
     classPrefix: 'li-',
+  })
+
+  test('prefix and classPrefix', async () => {
+    expect(defaultExtract(prefixAndClassPrefixStr)).toMatchSnapshot()
+
+    expect(prefixAndClassPrefixExtract(prefixAndClassPrefixStr)).toMatchSnapshot()
   })
 
   test('attributesExtract', async () => {

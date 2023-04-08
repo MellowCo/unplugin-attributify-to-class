@@ -7,7 +7,7 @@ unplugin-attributify-to-class
 </p>
 
 [![Version](https://img.shields.io/npm/v/unplugin-attributify-to-class.svg?style=flat-square&logo=npm) 
-![Downloads](https://img.shields.io/npm/dm/unplugin-unocss-attributify-wechat.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-attributify-to-class)
+![Downloads](https://img.shields.io/npm/dm/unplugin-attributify-to-class.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/unplugin-attributify-to-class)
 
 
 collect and add atomized css [attributify mode](https://github.com/unocss/unocss/tree/main/packages/preset-attributify#attributify-mode) to class , support the use of attributify mode in miniprogram
@@ -294,12 +294,14 @@ attributifyToClass({
 ```
 
 ### Properties Conflicts
-If the name of the attributes mode ever conflicts with the elements' or components' properties, you can add un- prefix to be specific to attributify mode.  
+If the name of the attributes mode ever conflicts with the elements' or components' properties, you can add `un-` prefix to be specific to attributify mode.  
 
 ```html
 <a 
   text="red" 
+  bg-red
   un-text="blue"
+  un-bg-blue
 >
   This conflicts with links' `text` prop
 </a>
@@ -314,11 +316,15 @@ attributifyToClass({
 })
 ```
 
+Transform
+
 ```html
 <a 
   text="red" 
-  un-text="blue" 
-  class="text-blue"
+  bg-red
+  un-text="blue"
+  un-bg-blue
+  class="text-blue bg-blue"
 >
   This conflicts with links' text prop
 </a>

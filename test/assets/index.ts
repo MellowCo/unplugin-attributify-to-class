@@ -187,3 +187,21 @@ export const valuelessStr = `
   <view class="flex-1" bg-[#ccc]>text</view>
 </template>
 `
+
+
+export const prefixAndClassPrefixStr = `
+<template>
+  <view 
+    text="sm white"
+    p="y-4 x-4"
+    bg-blue
+    mx-4
+    pr-text="xl black"
+    pr-p="y-8 x-8"
+    pr-bg-red
+    pr-mx-8
+  >
+    Button  
+  </view>
+</template>
+`

@@ -294,13 +294,16 @@ attributifyToClass({
 ```html
 <a 
   text="red" 
+  bg-red
   un-text="blue"
+  un-bg-blue
 >
   This conflicts with links' `text` prop
 </a>
 ```
 
 设置 前缀匹配
+
 ```ts
 attributifyToClass({
   // 前缀属性默认值`un-`
@@ -310,11 +313,15 @@ attributifyToClass({
 })
 ```
 
+转换后
+
 ```html
 <a 
   text="red" 
-  un-text="blue" 
-  class="text-blue"
+  bg-red
+  un-text="blue"
+  un-bg-blue
+  class="text-blue bg-blue"
 >
   This conflicts with links' text prop
 </a>

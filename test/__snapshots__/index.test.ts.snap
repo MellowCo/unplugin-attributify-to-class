@@ -434,6 +434,44 @@ exports[`attributify > nonValueExtract 3`] = `
 "
 `;
 
+exports[`attributify > prefix and classPrefix 1`] = `
+"
+<template>
+  <view 
+    text=\\"sm white\\"
+    p=\\"y-4 x-4\\"
+    bg-blue
+    mx-4
+    pr-text=\\"xl black\\"
+    pr-p=\\"y-8 x-8\\"
+    pr-bg-red
+    pr-mx-8
+   class=\\"text-sm text-white p-y-4 p-x-4 bg-blue mx-4 pr-bg-red pr-mx-8\\">
+    Button  
+  </view>
+</template>
+"
+`;
+
+exports[`attributify > prefix and classPrefix 2`] = `
+"
+<template>
+  <view 
+    text=\\"sm white\\"
+    p=\\"y-4 x-4\\"
+    bg-blue
+    mx-4
+    pr-text=\\"xl black\\"
+    pr-p=\\"y-8 x-8\\"
+    pr-bg-red
+    pr-mx-8
+   class=\\"cl-text-xl cl-text-black cl-p-y-8 cl-p-x-8 cl-bg-red cl-mx-8\\">
+    Button  
+  </view>
+</template>
+"
+`;
+
 exports[`attributify > prefixExtract 1`] = `
 "
 <template>
