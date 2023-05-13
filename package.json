@@ -1,6 +1,7 @@
 {
   "name": "unplugin-attributify-to-class",
   "version": "0.2.2",
+  "packageManager": "pnpm@8.4.0",
   "description": "css attributify mode to class, support use in vite, rollup, webpack",
   "license": "MIT",
   "homepage": "https://github.com/MellowCo/unplugin-attributify-to-class#readme",
@@ -83,19 +84,19 @@
   "dependencies": {
     "@rollup/pluginutils": "^5.0.2",
     "unplugin": "^1.3.1",
-    "unplugin-transform-class": "^0.3.0"
+    "unplugin-transform-class": "^0.3.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.4",
-    "@types/node": "^18.15.11",
+    "@antfu/eslint-config": "^0.38.6",
+    "@types/node": "^18.16.8",
     "bumpp": "^9.1.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.40.0",
     "esno": "^0.16.3",
-    "rollup": "^3.20.2",
+    "rollup": "^3.21.6",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vite": "^4.2.1",
-    "vitest": "^0.29.8",
-    "webpack": "^5.78.0"
+    "vite": "^4.3.5",
+    "vitest": "^0.31.0",
+    "webpack": "^5.82.1"
   }
 }
