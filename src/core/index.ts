@@ -39,7 +39,7 @@ interface TransformOption {
   selectors: string[]
 }
 
-export const extractorAttributify = (options?: Options): any => {
+export function extractorAttributify(options?: Options): any {
   const attributes = options?.attributes ?? defaultAttributes
   const nonValuedAttribute = options?.nonValuedAttribute ?? true
   const ignoreNonValuedAttributes = options?.ignoreNonValuedAttributes ?? defaultIgnoreNonValuedAttributes
@@ -115,7 +115,19 @@ export const extractorAttributify = (options?: Options): any => {
               const attributifyToClass = content
                 .split(splitterRE)
                 .filter(Boolean)
-                .map(v => v === '~' ? `${classPrefix}${_name}` : `${classPrefix}${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`).join(' ')
+                .map((v) => {
+                  if (v === '~')
+                    return `${classPrefix}${_name}`
+
+                  // support bg="active:red-400" => class="active:bg-red-400"
+                  if (v.includes(':')) {
+                    const [pseudoPrefix, pseudoValue] = v.split(':')
+                    const classStr = `${pseudoPrefix}:${classPrefix}${_name}-${pseudoValue}`
+                    return `${transformEscape ? transformSelector(classStr, transformRules) : classStr}`
+                  }
+
+                  return `${classPrefix}${_name}-${transformEscape ? transformSelector(v, transformRules) : v}`
+                }).join(' ')
 
               option.selectors.push(attributifyToClass)
             }

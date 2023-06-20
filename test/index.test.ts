@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { defaultAttributes, defaultIgnoreNonValuedAttributes, extractorAttributify } from '../src/core'
-import { IllegalStr, animateStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, scriptStr, valuelessStr, prefixAndClassPrefixStr } from './assets'
-
+import { IllegalStr, animateStr, classPrefixStr, emptyClassStr, escapeStr, fixture1, fixture2, fuiButton, noTemplateStr, prefixAndClassPrefixStr, pseudoStr, scriptStr, valuelessStr } from './assets'
 
 describe('attributify', () => {
   const attributesExtract = extractorAttributify({
@@ -126,5 +125,9 @@ describe('attributify', () => {
 
   test('valuelessStr', () => {
     expect(nonValueExtract(valuelessStr)).toMatchSnapshot()
+  })
+
+  test('pseudoStr', () => {
+    expect(defaultExtract(pseudoStr)).toMatchSnapshot()
   })
 })

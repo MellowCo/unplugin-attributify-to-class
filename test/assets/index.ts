@@ -188,7 +188,6 @@ export const valuelessStr = `
 </template>
 `
 
-
 export const prefixAndClassPrefixStr = `
 <template>
   <view 
@@ -203,5 +202,11 @@ export const prefixAndClassPrefixStr = `
   >
     Button  
   </view>
+</template>
+`
+
+export const pseudoStr = `
+<template>
+<view bg="red-200 active:red-400"/>
 </template>
 `
