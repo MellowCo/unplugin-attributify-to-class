@@ -9,6 +9,7 @@ const strippedPrefixes = [
 ]
 
 const templateRe = /<template>([\s\S]*)<\/template>/g
+
 const splitterRE = /[\s'"`;]+/g
 const elementRE = /<\w(?=.*>)[\w:\.$-]*\s((?:".*?"|'.*?'|`.*?`|.*?)*?)>/gs
 const valuedAttributeRE = /([?]|(?!\d|-{2}|-\d)[a-zA-Z0-9\u00A0-\uFFFF-\[\]#_:@.!%-]+)(?:=(["'])([^\2]*?)\2)?/g
@@ -19,7 +20,7 @@ function isValidSelector(selector = ''): selector is string {
   return validateFilterRE.test(selector)
 }
 
-export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate']
+export const defaultAttributes = ['bg', 'flex', 'grid', 'border', 'text', 'font', 'class', 'className', 'p', 'm', 'animate', 'color', 'w', 'h', 'rd']
 export const defaultIgnoreNonValuedAttributes = ['class']
 
 interface TransformOption {
