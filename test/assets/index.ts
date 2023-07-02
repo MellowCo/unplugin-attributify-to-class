@@ -210,3 +210,26 @@ export const pseudoStr = `
 <view bg="red-200 active:red-400"/>
 </template>
 `
+
+export const placeholderStr = `
+<template>
+<input type="text"  placeholder="What's your name?" />
+
+<view
+  text="sm green"
+  p="y-2 x-4"
+  m="4"
+>
+xx
+</view>
+
+
+<view flex="~ col wrap" class="m4">
+  xxx
+</view>
+
+
+
+
+</template>
+`
