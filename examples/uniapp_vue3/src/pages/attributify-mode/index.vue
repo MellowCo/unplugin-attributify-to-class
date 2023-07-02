@@ -58,6 +58,13 @@ export default {
     <view bg="#2ecc71:50">
       333
     </view>
+
+    <div
+      li-color="yellow" li-w="100px" li-h="100px" li-rd="50"
+      li-inline-bold li-bg-pink li-text="3xl" li-font="bold"
+    >
+      123
+    </div>
   </view>
 </template>
 
