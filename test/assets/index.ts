@@ -233,3 +233,13 @@ xx
 
 </template>
 `
+
+// v-else 兼容
+export const VElseStr = `
+<template>
+<view class='p-6' v-if='loading'>
+</view>
+<view class='p-6' v-else>
+</view>
+</template>
+`

@@ -9,6 +9,17 @@ exports[`attributify > IllegalStr 1`] = `
 "
 `;
 
+exports[`attributify > VElseStr 1`] = `
+"
+<template>
+<view class='p-6' v-if='loading'>
+</view>
+<view class='p-6' v-else>
+</view>
+</template>
+"
+`;
+
 exports[`attributify > attributesExtract 1`] = `
 "
 <template>
